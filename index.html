@@ -1,1 +1,565 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f8c8dc">
+<title>A Little Letter For You ♡</title>
+
+<style>
+:root {
+  --pink: #f8c8dc;
+  --pink-dark: #d977a5;
+  --blue: #bde0fe;
+  --blue-dark: #4f8fc9;
+  --white: #fffaff;
+  --ink: #55465a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 15%, #ffe5f0 0, transparent 30%),
+    radial-gradient(circle at 90% 85%, #d9edff 0, transparent 30%),
+    linear-gradient(135deg, #fce5ef, #e1f1ff);
+}
+
+button, input { font: inherit; }
+
+button {
+  border: 0;
+  border-radius: 25px;
+  padding: 13px 24px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform .2s, background .2s;
+}
+
+button:focus-visible, input:focus-visible {
+  outline: 3px solid #648fc6;
+  outline-offset: 3px;
+}
+
+button:active { transform: scale(.96); }
+
+.primary {
+  background: var(--blue);
+  color: #254d72;
+  box-shadow: 0 4px 12px #719fc833;
+}
+
+.secondary {
+  background: var(--pink);
+  color: #75435d;
+}
+
+.page {
+  display: none;
+  width: 100%;
+  min-height: 100vh;
+  padding: 24px 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.page.active {
+  display: flex;
+  animation: appear .45s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+  width: 100%;
+  max-width: 570px;
+  background: #fffaffed;
+  border: 2px solid white;
+  border-radius: 26px;
+  padding: 28px 22px;
+  text-align: center;
+  box-shadow: 0 15px 40px #a68ab52b;
+}
+
+h1 {
+  color: #5488bc;
+  font-size: clamp(27px, 7vw, 40px);
+  margin: 10px 0 16px;
+}
+
+h2 { color: #cc79a0; }
+
+p {
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.decoration {
+  font-size: 32px;
+  letter-spacing: 8px;
+}
+
+.small { font-size: 13px; opacity: .8; }
+
+.envelope {
+  width: min(270px, 75vw);
+  height: 175px;
+  margin: 28px auto;
+  position: relative;
+  background: #a9d6fa;
+  border-radius: 8px;
+  box-shadow: 0 12px 25px #769fc744;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #c5e3ff;
+  clip-path: polygon(0 0, 100% 0, 50% 58%);
+  border-radius: 8px;
+}
+
+.envelope::after {
+  content: "♡";
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  transform: translate(-50%, -50%);
+  font-size: 43px;
+  color: #d977a5;
+}
+
+.letter {
+  background: white;
+  border: 2px solid #bde0fe;
+  border-radius: 15px;
+  padding: 22px 18px;
+  text-align: left;
+}
+
+.letter-date {
+  color: #cc79a0;
+  text-align: right;
+  font-size: 14px;
+}
+
+.letter-poem {
+  white-space: pre-wrap;
+  line-height: 1.9;
+}
+
+.media {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  max-height: 420px;
+  object-fit: contain;
+  margin: 18px auto;
+  border-radius: 16px;
+}
+
+input {
+  width: 100%;
+  max-width: 260px;
+  padding: 15px;
+  border: 2px solid var(--blue);
+  border-radius: 15px;
+  text-align: center;
+  background: white;
+  color: var(--ink);
+  font-size: 22px;
+  letter-spacing: 5px;
+}
+
+.hint {
+  background: #e7f3ff;
+  padding: 12px;
+  border-radius: 14px;
+}
+
+.error { color: #b34370; min-height: 24px; }
+
+.button-area {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  min-height: 85px;
+}
+
+#noBtn { background: var(--pink); color: #75435d; }
+
+#pretty {
+  display: none;
+  margin: 18px auto;
+}
+
+#pretty img {
+  display: block;
+  width: min(230px, 75%);
+  margin: 0 auto 8px;
+}
+
+#pretty .sign {
+  background: white;
+  border: 3px solid var(--pink);
+  border-radius: 15px;
+  padding: 15px;
+  font-size: 23px;
+  font-weight: bold;
+  color: #cc6594;
+}
+
+.poster {
+  width: 100%;
+  border: 7px solid #72b5f1;
+  border-radius: 8px;
+  background: white;
+}
+
+.poster-placeholder {
+  background: white;
+  border: 7px solid #72b5f1;
+  padding: 20px 12px;
+}
+
+.poster-placeholder .stars {
+  color: #f2b900;
+  font-size: 25px;
+  letter-spacing: 12px;
+}
+
+.poster-message {
+  margin: 20px auto;
+  padding: 15px 8px;
+  border-top: 5px solid #38b8fa;
+  border-bottom: 5px solid #38b8fa;
+  max-width: 460px;
+  font-size: clamp(16px, 4vw, 22px);
+  line-height: 1.6;
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.choice {
+  background: var(--blue);
+  color: #254d72;
+}
+
+footer { margin-top: 20px; }
+
+@media (max-width: 380px) {
+  .card { padding: 22px 15px; }
+  .letter { padding: 16px 12px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1: ENVELOPE -->
+<section class="page active" id="envelopePage">
+  <div class="card">
+    <div class="decoration">🩷 🩵 ♡</div>
+    <h1>A little letter for you</h1>
+    <p>There's something I'd like you to read.</p>
+    <div class="envelope" aria-hidden="true"></div>
+    <button class="primary" onclick="goTo('letterPage')">
+      Open your letter ♡
+    </button>
+    <footer class="small">Made with love</footer>
+  </div>
+</section>
+
+<!-- PAGE 2: LETTER -->
+<section class="page" id="letterPage">
+  <div class="card">
+    <div class="decoration">🩵 💌 🩷</div>
+    <h1>To my favourite person</h1>
+
+    <article class="letter">
+      <!-- EDIT YOUR DATE HERE -->
+      <div class="letter-date">13 October 2026</div>
+
+      <!-- REPLACE THIS WITH YOUR POEM -->
+      <div class="letter-poem" id="poem">
+My dearest,
+
+There are things I don't always know how to say out loud, so I wanted to put them into words.
+
+You have become someone special to me, someone I want to keep close and make more memories with.
+
+No matter what happens, I wanted you to know that meeting you has meant something to me.
+
+With love,
+        </div>
+
+      <!-- OPTIONAL PICTURE -->
+      <!-- Upload your image to images/our-picture.jpg -->
+      <!-- Then remove the comment marks around this image -->
+      <!--
+      <img class="media"
+           src="images/our-picture.jpg"
+           alt="A special memory">
+      -->
+
+      <!-- OPTIONAL VIDEO -->
+      <!-- Upload your video to videos/our-memory.mp4 -->
+      <!--
+      <video class="media" controls playsinline>
+        <source src="videos/our-memory.mp4" type="video/mp4">
+      </video>
+      -->
+
+      <p style="text-align:right;color:#cc79a0">
+        Always, with love ♡
+      </p>
+    </article>
+
+    <p>Take your time reading it.</p>
+    <button class="primary" onclick="goTo('passcodePage')">
+      Next ♡
+    </button>
+  </div>
+</section>
+
+<!-- PAGE 3: PASSCODE -->
+<section class="page" id="passcodePage">
+  <div class="card">
+    <div class="decoration">🩷 🔒 🩵</div>
+    <h1>A little secret</h1>
+    <p>Enter the special code to continue.</p>
+
+    <div class="hint">
+      <strong>Hint:</strong><br>
+      The day we started dating.
+    </div>
+
+    <p>
+      <input id="passcode"
+        type="password"
+        inputmode="numeric"
+        maxlength="6"
+        placeholder="••••••"
+        aria-label="Six digit passcode">
+    </p>
+
+    <button class="primary" id="unlockBtn" onclick="checkCode()">
+      Unlock ♡
+    </button>
+
+    <p class="error" id="codeMessage" aria-live="polite"></p>
+    <p class="small" id="attemptMessage">You have 6 attempts.</p>
+  </div>
+</section>
+
+<!-- PAGE 4: QUESTION -->
+<section class="page" id="questionPage">
+  <div class="card">
+    <div class="decoration">🩵 ♡ 🩷</div>
+    <h1>Can we try again?</h1>
+    <p>Would you like to see the message I made for you?</p>
+
+    <div class="button-area" id="buttonArea">
+      <button class="primary" onclick="showReveal()">
+        YES ♡
+      </button>
+      <button id="noBtn" onclick="noClicked()"
+        onpointerenter="moveNo(event)">
+        NO
+      </button>
+    </div>
+
+    <div id="pretty">
+      <!-- Optional original cartoon image -->
+      <!-- Upload an image to images/pretty-please.png -->
+      <!--
+      <img src="images/pretty-please.png"
+           alt="A cute cartoon holding a sign">
+      -->
+      <div style="font-size:70px">🩵🪧</div>
+      <div class="sign">Pretty please? 🩷</div>
+      <h2>Try again! ♡</h2>
+    </div>
+
+    <p class="small" id="noMessage" aria-live="polite"></p>
+  </div>
+</section>
+
+<!-- PAGE 5: FINAL POSTER -->
+<section class="page" id="revealPage">
+  <div class="card">
+    <div class="decoration">🩷 ✨ 🩵</div>
+    <h1>One last thing...</h1>
+
+    <!--
+      UPLOAD YOUR POSTER AS poster.jpg
+      Put it in the same folder as index.html.
+      Then this image will appear automatically.
+    -->
+    <img class="poster" id="posterImage"
+         src="poster.jpg"
+         alt="My special message"
+         onerror="this.style.display='none';document.getElementById('posterFallback').style.display='block'">
+
+    <!-- This appears until poster.jpg is uploaded -->
+    <div class="poster-placeholder" id="posterFallback"
+         style="display:none">
+      <div class="stars">★ ★ ★ ★</div>
+      <h2>OHANA MEANS FAMILY... 🩵</h2>
+      <div class="poster-message">
+        And out of all the people I could have met,
+        I'm glad I met you.
+
+        You've become someone I want to keep close,
+        someone I want to make memories with.
+
+        <br><br>
+        So I have one question...
+
+        <br><br>
+        Would you be the Angel to my Stitch? 🩷🩵
+        Because every Stitch deserves an Angel.
+      </div>
+      <div class="choices">
+        <button class="choice" onclick="answer('YES')">YES ♡</button>
+        <button class="secondary" onclick="answer('NO')">NO</button>
+      </div>
+      <div class="stars">★ ★ ★ ★</div>
+    </div>
+
+    <p id="finalMessage" aria-live="polite"></p>
+    <button class="primary" onclick="goTo('envelopePage')">
+      Read it again ♡
+    </button>
+  </div>
+</section>
+
+<script>
+function goTo(pageId) {
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  document.getElementById(pageId).classList.add("active");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+/* PASSCODE */
+const correctCode = "150326";
+let attempts = 0;
+let lockedUntil = 0;
+
+function checkCode() {
+  const input = document.getElementById("passcode");
+  const message = document.getElementById("codeMessage");
+  const attemptMessage = document.getElementById("attemptMessage");
+
+  if (Date.now() < lockedUntil) {
+    const seconds = Math.ceil((lockedUntil - Date.now()) / 1000);
+    message.textContent = "Please wait " + seconds +
+      " seconds before trying again.";
+    return;
+  }
+
+  if (input.value === correctCode) {
+    attempts = 0;
+    input.value = "";
+    message.textContent = "";
+    goTo("questionPage");
+    return;
+  }
+
+  attempts++;
+  input.value = "";
+
+  if (attempts >= 6) {
+    lockedUntil = Date.now() + 60000;
+    attempts = 0;
+    message.textContent = "Too many attempts. Please wait one minute.";
+    attemptMessage.textContent = "The keypad is temporarily locked.";
+    document.getElementById("unlockBtn").disabled = true;
+
+    setTimeout(() => {
+      document.getElementById("unlockBtn").disabled = false;
+      message.textContent = "";
+      attemptMessage.textContent = "You have 6 attempts.";
+    }, 60000);
+  } else {
+    const left = 6 - attempts;
+    message.textContent = "That code isn't right. Try again.";
+    attemptMessage.textContent = left + " attempt(s) remaining.";
+  }
+}
+
+document.getElementById("passcode").addEventListener("keydown", event => {
+  if (event.key === "Enter") checkCode();
+});
+
+/* PLAYFUL NO BUTTON */
+let noCount = 0;
+
+function moveNo(event) {
+  const button = document.getElementById("noBtn");
+
+  if (noCount >= 3) return;
+
+  noCount++;
+
+  const area = document.getElementById("buttonArea");
+  const maxX = Math.max(0, area.clientWidth - button.offsetWidth);
+  const maxY = 45;
+
+  button.style.position = "relative";
+  button.style.left = Math.round(Math.random() * maxX - maxX / 2) + "px";
+  button.style.top = Math.round(Math.random() * maxY - maxY / 2) + "px";
+
+  if (noCount >= 3) {
+    document.getElementById("pretty").style.display = "block";
+    document.getElementById("noMessage").textContent =
+      "Hehe... one more thought? 🩷";
+  }
+}
+
+function noClicked() {
+  noCount++;
+  document.getElementById("pretty").style.display = "block";
+  document.getElementById("noMessage").textContent =
+    "Try again! The choice is still yours. ♡";
+  moveNo();
+}
+
+function showReveal() {
+  goTo("revealPage");
+}
+
+function answer(choice) {
+  const message = document.getElementById("finalMessage");
+
+  if (choice === "YES") {
+    message.textContent = "Thank you for reading my message. ♡";
+  } else {
+    message.textContent =
+      "Thank you for being honest with me. ♡";
+  }
+}
+</script>
+
+</body>
+</html>

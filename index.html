@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#a9c9ff">
+<meta name="description" content="A little website made with care, just for you.">
 <title>Just For You 🩵</title>
+
 <style>
 :root {
   --blue: #79aaff;
@@ -14,8 +16,11 @@
   --light-pink: #fff0f7;
   --ink: #30415f;
 }
+
 * { box-sizing: border-box; }
+
 html { scroll-behavior: smooth; }
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -27,18 +32,22 @@ body {
     linear-gradient(135deg, #fceaf3, #dceaff, #fff5fa);
   overflow-x: hidden;
 }
+
 button, input { font: inherit; }
+
 button {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
+
 button:focus-visible,
 input:focus-visible {
   outline: 3px solid #e786b5;
   outline-offset: 4px;
 }
+
 .hidden { display: none !important; }
-/* BACKGROUND COLLAGE */
+
 .background-collage {
   position: fixed;
   inset: 0;
@@ -46,6 +55,7 @@ input:focus-visible {
   pointer-events: none;
   overflow: hidden;
 }
+
 .bg-photo {
   position: absolute;
   width: clamp(90px, 17vw, 190px);
@@ -54,12 +64,14 @@ input:focus-visible {
   opacity: .20;
   mix-blend-mode: multiply;
 }
+
 .bg1 { top: 2%; left: -25px; transform: rotate(-12deg); }
 .bg2 { top: 4%; right: -25px; transform: rotate(12deg); }
 .bg3 { top: 35%; left: -35px; transform: rotate(8deg); }
 .bg4 { top: 40%; right: -30px; transform: rotate(-9deg); }
 .bg5 { bottom: 2%; left: 2%; transform: rotate(-8deg); }
 .bg6 { bottom: 1%; right: 1%; transform: rotate(9deg); }
+
 .bg7 {
   width: clamp(110px, 20vw, 220px);
   height: clamp(110px, 20vw, 220px);
@@ -68,7 +80,7 @@ input:focus-visible {
   transform: translateX(-50%) rotate(5deg);
   opacity: .13;
 }
-/* FLOATING HEARTS */
+
 .floating-decor {
   position: fixed;
   z-index: 0;
@@ -77,6 +89,7 @@ input:focus-visible {
   opacity: 0;
   animation: floatUp 8s linear infinite;
 }
+
 @keyframes floatUp {
   0% {
     transform: translateY(0) rotate(0deg) scale(.7);
@@ -89,6 +102,7 @@ input:focus-visible {
     opacity: 0;
   }
 }
+
 main {
   position: relative;
   z-index: 1;
@@ -96,7 +110,7 @@ main {
   min-height: 100vh;
   padding: 35px 18px 60px;
 }
-/* PROGRESS */
+
 .progress-shell {
   width: min(100%, 680px);
   margin: 0 auto 28px;
@@ -106,6 +120,7 @@ main {
   border-radius: 18px;
   backdrop-filter: blur(8px);
 }
+
 .progress-top {
   display: flex;
   justify-content: space-between;
@@ -115,12 +130,14 @@ main {
   font-size: .82rem;
   color: #5574a5;
 }
+
 .progress-track {
   height: 7px;
   background: #e6eafa;
   border-radius: 20px;
   overflow: hidden;
 }
+
 .progress-fill {
   width: 0%;
   height: 100%;
@@ -128,23 +145,30 @@ main {
   border-radius: inherit;
   transition: width .55s ease;
 }
+
 .page {
   width: min(100%, 680px);
   margin: 0 auto;
   text-align: center;
-  animation: fadeIn .65s ease both;
+  animation: pageEnter .5s ease both;
 }
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(12px); }
+
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
 h1, h2 { color: var(--deep-blue); }
+
 h1 { font-size: clamp(1.8rem, 7vw, 2.8rem); }
+
 p { line-height: 1.8; }
+
 .small-note {
   font-size: .88rem;
   color: #63748f;
 }
+
 .btn {
   border: 0;
   border-radius: 30px;
@@ -154,23 +178,45 @@ p { line-height: 1.8; }
   box-shadow: 0 5px 14px #315caa30;
   transition: transform .2s, background .2s, box-shadow .2s;
 }
+
 .btn:hover {
   transform: translateY(-2px);
   background: #24498c;
   box-shadow: 0 8px 20px #315caa35;
 }
+
 .btn-pink { background: #e786b5; }
 .btn-pink:hover { background: #d96b9e; }
+
 .btn:disabled {
   opacity: .6;
   cursor: not-allowed;
 }
-.heart {
-  font-size: 1.5rem;
-  margin: 10px;
+
+.heart { font-size: 1.5rem; margin: 10px; }
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+  min-height: 65px;
 }
+
+.page-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
 /* ENVELOPE */
+
 .envelope-wrap { padding-top: 7vh; }
+
 .envelope {
   position: relative;
   width: min(82vw, 340px);
@@ -182,10 +228,12 @@ p { line-height: 1.8; }
   overflow: hidden;
   animation: envelopeFloat 3s ease-in-out infinite;
 }
+
 @keyframes envelopeFloat {
   0%, 100% { transform: translateY(0) rotate(0); }
   50% { transform: translateY(-7px) rotate(.5deg); }
 }
+
 .envelope:before {
   content: "";
   position: absolute;
@@ -194,6 +242,7 @@ p { line-height: 1.8; }
   clip-path: polygon(0 0, 50% 60%, 100% 0);
   z-index: 2;
 }
+
 .envelope:after {
   content: "";
   position: absolute;
@@ -202,6 +251,7 @@ p { line-height: 1.8; }
   clip-path: polygon(0 100%, 50% 47%, 100% 100%);
   z-index: 3;
 }
+
 .letter-peek {
   position: absolute;
   width: 76%;
@@ -215,12 +265,15 @@ p { line-height: 1.8; }
   place-items: center;
   font-size: 2.5rem;
 }
+
 /* FRAMES */
+
 .frame-wrap {
   position: relative;
   width: min(100%, 560px);
   margin: 45px auto 35px;
 }
+
 .frame {
   position: relative;
   background: rgba(255,255,255,.95);
@@ -229,6 +282,7 @@ p { line-height: 1.8; }
   padding: clamp(22px, 6vw, 42px) clamp(15px, 5vw, 35px);
   box-shadow: 0 12px 35px #315caa24;
 }
+
 .frame:before, .frame:after {
   content: "★";
   position: absolute;
@@ -237,13 +291,17 @@ p { line-height: 1.8; }
   z-index: 3;
   animation: starTwinkle 2.5s ease-in-out infinite;
 }
+
 .frame:before { top: -20px; left: -18px; }
 .frame:after { bottom: -20px; right: -18px; }
+
 @keyframes starTwinkle {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: .6; transform: scale(1.15); }
 }
+
 .frame-title { margin-top: 0; color: #557fc2; }
+
 .edge-character {
   position: absolute;
   z-index: 4;
@@ -253,54 +311,51 @@ p { line-height: 1.8; }
   mix-blend-mode: multiply;
   pointer-events: none;
 }
+
 .letter-character {
   left: -65px;
   bottom: 12%;
   transform: rotate(-5deg);
 }
+
 .passcode-character {
   right: -66px;
   top: 5%;
   transform: rotate(4deg);
 }
-@media (max-width: 480px) {
-  .letter-character {
-    left: -30px;
-    bottom: -48px;
-    width: 105px;
-  }
-  .passcode-character {
-    right: -28px;
-    top: -52px;
-    width: 105px;
-  }
-  .frame { border-width: 6px; }
-  main { padding-left: 13px; padding-right: 13px; }
-}
+
 /* LETTER */
+
 .letter-text {
   text-align: left;
   font-size: 1rem;
   line-height: 1.95;
 }
+
 .letter-text p { margin: 0 0 18px; }
+
 .signature {
   text-align: right;
   color: var(--deep-blue);
   font-style: italic;
   margin-top: 28px;
 }
+
 /* MEMORIES */
+
 .memories-intro {
   max-width: 500px;
   margin: 0 auto 25px;
 }
+
 .memories-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 17px;
-  margin: 28px 0;
+  margin: 28px auto;
+  max-width: 390px;
 }
+
 .memory-card {
   background: #fff;
   padding: 10px 10px 16px;
@@ -309,34 +364,151 @@ p { line-height: 1.8; }
   transform: rotate(-1deg);
   transition: transform .25s, box-shadow .25s;
 }
-.memory-card:nth-child(even) {
-  transform: rotate(1.5deg);
-}
+
 .memory-card:hover {
   transform: translateY(-4px) rotate(0);
   box-shadow: 0 12px 28px #315caa30;
 }
+
 .memory-card img {
   display: block;
   width: 100%;
-  height: 155px;
+  height: 220px;
   object-fit: contain;
   background: #f6f7ff;
   border-radius: 5px;
+  cursor: pointer;
+  transition: transform .2s;
 }
+
+.memory-card img:hover { transform: scale(1.02); }
+
 .memory-card p {
-  font-size: .88rem;
+  font-size: 1rem;
   margin: 12px 3px 0;
   color: #5574a5;
   line-height: 1.5;
 }
+
+.memory-open {
+  display: block;
+  width: 100%;
+  border: 0;
+  margin-top: 12px;
+  padding: 11px 16px;
+  border-radius: 25px;
+  background: #e6f1ff;
+  color: #315caa;
+}
+
+.memory-open:hover { background: #d8e8ff; }
+
 .memory-note {
   background: linear-gradient(135deg, #fff0f7, #eaf2ff);
   border-radius: 14px;
   padding: 16px;
   margin: 25px 0;
 }
+
+/* WHY YOU POEM */
+
+.why-poem {
+  text-align: left;
+  line-height: 1.9;
+  font-size: 1rem;
+}
+
+.why-poem p { margin-bottom: 22px; }
+
+.music-player {
+  width: 100%;
+  margin: 22px 0;
+  padding: 16px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #fff0f7, #eaf2ff);
+  border: 1px solid #d9e6ff;
+}
+
+/* PHOTO VIEWER */
+
+.photo-viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: rgba(27, 38, 65, .88);
+  backdrop-filter: blur(10px);
+  animation: viewerFade .25s ease both;
+}
+
+@keyframes viewerFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.viewer-content {
+  width: min(100%, 650px);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  color: white;
+  text-align: center;
+}
+
+.viewer-image {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  max-height: 68vh;
+  object-fit: contain;
+  border: 5px solid white;
+  border-radius: 10px;
+  box-shadow: 0 15px 45px #0005;
+}
+
+.viewer-caption { margin: 0; color: #fff; }
+
+.viewer-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.viewer-btn {
+  min-width: 45px;
+  min-height: 42px;
+  padding: 9px 15px;
+  border: 1px solid #ffffff70;
+  border-radius: 25px;
+  color: white;
+  background: #ffffff20;
+}
+
+.viewer-btn:hover { background: #ffffff35; }
+
+.viewer-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  min-width: 45px;
+  min-height: 45px;
+  border: 1px solid #ffffff70;
+  border-radius: 50%;
+  color: white;
+  background: #ffffff20;
+  font-size: 1.5rem;
+}
+
 /* PASSCODE */
+
 .code-input {
   width: min(100%, 280px);
   display: block;
@@ -351,13 +523,17 @@ p { line-height: 1.8; }
   color: var(--deep-blue);
   outline: none;
 }
+
 .code-input:focus { border-color: #e786b5; }
+
 .feedback {
   min-height: 28px;
   color: #b84c80;
   font-size: .92rem;
 }
+
 /* QUESTION */
+
 .question-card {
   padding: 28px 18px;
   background: rgba(255,255,255,.94);
@@ -365,34 +541,27 @@ p { line-height: 1.8; }
   border-radius: 20px;
   box-shadow: 0 12px 32px #e786b520;
 }
+
 .question-card h2 {
   color: #c85d91;
   font-size: clamp(1.4rem, 5vw, 2rem);
 }
-.button-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin-top: 25px;
-  min-height: 65px;
-}
+
 #noButton {
   background: #8b9ab3;
   position: relative;
   touch-action: manipulation;
 }
+
 #noButton.disappearing {
   animation: noDisappear .3s ease forwards;
   pointer-events: none;
 }
+
 @keyframes noDisappear {
-  to {
-    opacity: 0;
-    transform: scale(.2) rotate(20deg);
-  }
+  to { opacity: 0; transform: scale(.2) rotate(20deg); }
 }
+
 .please-picture {
   display: block;
   width: min(70%, 220px);
@@ -401,12 +570,15 @@ p { line-height: 1.8; }
   margin: 20px auto 8px;
   mix-blend-mode: multiply;
 }
+
 .please-message {
   color: #c85d91;
   font-size: 1.5rem;
   font-weight: bold;
 }
+
 /* FINAL POSTER */
+
 .poster-frame {
   background: white;
   border: 10px solid #79aaff;
@@ -415,22 +587,28 @@ p { line-height: 1.8; }
   box-shadow: 0 18px 45px #315caa38;
   animation: posterPop .8s cubic-bezier(.2,.8,.2,1) both;
 }
+
 @keyframes posterPop {
   from { opacity: 0; transform: scale(.65) rotate(-4deg); }
   to { opacity: 1; transform: scale(1) rotate(0); }
 }
+
 .poster-image {
   display: block;
   width: 100%;
   height: auto;
+  cursor: zoom-in;
 }
+
 .poster-stars {
   color: #ffc943;
   font-size: 1.7rem;
   letter-spacing: 12px;
   margin: 12px 0;
 }
+
 /* SECRET MESSAGE */
+
 .secret-heart {
   display: inline-grid;
   place-items: center;
@@ -444,21 +622,25 @@ p { line-height: 1.8; }
   box-shadow: 0 8px 25px #e786b530;
   animation: heartbeat 1.8s ease-in-out infinite;
 }
+
 @keyframes heartbeat {
   0%, 100% { transform: scale(1); }
   12% { transform: scale(1.07); }
   24% { transform: scale(1); }
   36% { transform: scale(1.05); }
 }
+
 .secret-reveal {
   background: linear-gradient(145deg, #fff0f7, #eaf2ff);
   border: 1px solid #f3c5dc;
   border-radius: 18px;
   padding: 22px;
   margin: 25px 0;
-  animation: fadeIn .65s ease both;
+  animation: pageEnter .65s ease both;
 }
+
 /* ENDING */
+
 .ending-card {
   background: rgba(255,255,255,.9);
   border: 3px solid #b8d2ff;
@@ -466,25 +648,73 @@ p { line-height: 1.8; }
   padding: clamp(25px, 7vw, 45px);
   box-shadow: 0 15px 40px #315caa25;
 }
+
 .ending-symbol {
   font-size: 3rem;
   animation: endingFloat 3s ease-in-out infinite;
 }
+
 @keyframes endingFloat {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
 }
+
 footer {
   padding: 30px 10px 0;
   color: #6b7c98;
   font-size: .8rem;
 }
-@media (max-width: 400px) {
-  .memories-grid { gap: 10px; }
-  .memory-card { padding: 7px 7px 12px; }
-  .memory-card img { height: 125px; }
-  .progress-top { font-size: .75rem; }
+
+/* TAP HEART EFFECT */
+
+.tap-heart {
+  position: fixed;
+  z-index: 900;
+  pointer-events: none;
+  color: #d96b9e;
+  font-size: 25px;
+  animation: tapHeartRise .9s ease-out forwards;
+  text-shadow: 0 2px 8px #ffffff80;
 }
+
+@keyframes tapHeartRise {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0) scale(.5) rotate(-10deg);
+  }
+  20% { opacity: 1; }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -90px) scale(1.3) rotate(15deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .letter-character {
+    left: -30px;
+    bottom: -48px;
+    width: 105px;
+  }
+
+  .passcode-character {
+    right: -28px;
+    top: -52px;
+    width: 105px;
+  }
+
+  .frame { border-width: 6px; }
+  main { padding-left: 13px; padding-right: 13px; }
+  .viewer-image { max-height: 62vh; }
+  .viewer-controls { gap: 8px; }
+}
+
+@media (max-width: 400px) {
+  .memory-card { padding: 7px 7px 12px; }
+  .memory-card img { height: 170px; }
+  .progress-top { font-size: .75rem; }
+  .page-actions .btn { width: 100%; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: .01ms !important;
@@ -495,8 +725,17 @@ footer {
 }
 </style>
 </head>
+
 <body>
-<!-- BACKGROUND PICTURES -->
+
+<!-- BACKGROUND MUSIC -->
+<audio id="backgroundMusic" preload="auto" loop>
+  <source
+    src="https://raw.githubusercontent.com/wdbccf9dsz-oss/Someone-/refs/heads/main/Childish%20Gambino%20-%20Letter%20Home%20(audio).mp3"
+    type="audio/mpeg">
+  Your browser does not support audio playback.
+</audio>
+
 <div class="background-collage" aria-hidden="true">
   <img class="bg-photo bg1" src="IMG_2723.jpeg" alt="">
   <img class="bg-photo bg2" src="IMG_2726.jpeg" alt="">
@@ -506,45 +745,43 @@ footer {
   <img class="bg-photo bg6" src="IMG_2730.jpeg" alt="">
   <img class="bg-photo bg7" src="IMG_2733.jpeg" alt="">
 </div>
-<!-- FLOATING DECORATIONS -->
+
 <div id="floatingDecorations" aria-hidden="true"></div>
+
 <main>
-<!-- PROGRESS INDICATOR -->
+
 <div class="progress-shell hidden" id="progressShell">
   <div class="progress-top">
     <span id="progressLabel">Your little journey ♡</span>
-    <span id="progressCount">Step 1 of 8</span>
+    <span id="progressCount">Step 1 of 9</span>
   </div>
-  <div
-    class="progress-track"
-    role="progressbar"
-    aria-label="Website progress"
-    aria-valuemin="1"
-    aria-valuemax="8"
-    aria-valuenow="1"
-    id="progressBar"
-  >
+  <div class="progress-track" role="progressbar"
+       aria-label="Website progress"
+       aria-valuemin="1" aria-valuemax="9" aria-valuenow="1"
+       id="progressBar">
     <div class="progress-fill" id="progressFill"></div>
   </div>
 </div>
+
 <!-- PAGE 1: ENVELOPE -->
+
 <section class="page envelope-wrap" id="envelopePage">
   <p class="heart">🩵 💌 🩷</p>
   <h1>A little something for you</h1>
   <p>Made with love, just for you.</p>
-  <div class="envelope">
+  <div class="envelope" aria-hidden="true">
     <div class="letter-peek">♡</div>
   </div>
-  <button class="btn" onclick="openLetter()">
-    Open your letter 💌
-  </button>
+  <button class="btn" onclick="openLetter()">Open your letter 💌</button>
   <p class="small-note">Take your time reading it.</p>
+  <p class="small-note">P.S. There are a few little surprises along the way. ✨</p>
 </section>
+
 <!-- PAGE 2: LOVE LETTER -->
+
 <section class="page hidden" id="letterPage">
   <div class="frame-wrap">
-    <img class="edge-character letter-character"
-         src="IMG_2724.jpeg" alt="">
+    <img class="edge-character letter-character" src="IMG_2724.jpeg" alt="">
     <article class="frame">
       <p class="heart">🩵 ♡ 🩷</p>
       <h2 class="frame-title">A letter for you</h2>
@@ -563,11 +800,11 @@ footer {
       <p class="signature">Yours, with love. ♡</p>
     </article>
   </div>
-  <button class="btn" onclick="showPage('memoriesPage')">
-    A few memories 🩵
-  </button>
+  <button class="btn" onclick="showPage('memoriesPage')">A few memories 🩵</button>
 </section>
-<!-- PAGE 3: MEMORIES -->
+
+<!-- PAGE 3: ONE MEMORY OPTION -->
+
 <section class="page hidden" id="memoriesPage">
   <div class="frame-wrap">
     <div class="frame">
@@ -577,73 +814,95 @@ footer {
         Some moments deserve a little place of their own.
         Here are a few little pieces of this story. ♡
       </p>
+
       <div class="memories-grid">
         <article class="memory-card">
-          <img src="IMG_2726.jpeg" alt="Memory one">
-          <p>A little moment worth keeping. 🩵</p>
-        </article>
-        <article class="memory-card">
-          <img src="IMG_2727.jpeg" alt="Memory two">
+          <img
+            src="IMG_2727.jpeg"
+            alt="Something that reminds me of you"
+            data-caption="Something that reminds me of you. ♡"
+            id="specialMemoryImage"
+          >
           <p>Something that reminds me of you. ♡</p>
-        </article>
-        <article class="memory-card">
-          <img src="IMG_2728.jpeg" alt="Memory three">
-          <p>One for the memory book. 🩷</p>
-        </article>
-        <article class="memory-card">
-          <img src="IMG_2729.jpeg" alt="Memory four">
-          <p>Little things can mean a lot. ✨</p>
+          <button class="memory-open" type="button"
+                  onclick="showPage('whyYouPage')">
+            Open this memory ♡
+          </button>
         </article>
       </div>
+
       <div class="memory-note">
         <p>
           It doesn't always take a big moment to make a memory.
           Sometimes the smallest things stay with us the longest. ♡
         </p>
       </div>
-      <p class="small-note">
-        Every picture has its own little story.
-      </p>
+
+      <p class="small-note">A little something just for you. ✨</p>
     </div>
   </div>
   <button class="btn" onclick="showPage('passcodePage')">
     Continue to the secret 🔐
   </button>
 </section>
-<!-- PAGE 4: PASSCODE -->
+
+<!-- PAGE 4: WHY YOU POEM -->
+
+<section class="page hidden" id="whyYouPage">
+  <div class="frame-wrap">
+    <article class="frame">
+      <p class="heart">🩵 ♡ 🩷</p>
+      <h1>WHY YOU⁉️</h1>
+      <p class="small-note">A little poem for you. ♡</p>
+
+      <div class="why-poem">
+        <p>Sometimes I ask myself, why you? In a room full of people, I chose you—not anyone else, just you. But then I remember the first time we met. That was the moment you opened my eyes. Even though I’ve been through some of the most uncomfortable moments, sometimes you find someone who will genuinely stay by your side, no matter how tough things get. I want to be there for you through those tough times. Sometimes I wish the world weren't so cruel to people who love someone of the same gender. But that’s not the point. What I’m trying to say is that no matter what obstacles the world throws at us, we will overcome them without breaking apart. I know we sometimes question our relationship, but those feelings shouldn’t be bottled up. They’re something we have to discuss, no matter how hurtful or truthful the conversation might be.</p>
+
+        <p>It scares me sometimes. It feels as if, if I were to do something, the outcome would be like it always was before we met. I never wanted to be someone who was always guarded. But when I’m with you, the weight of my thoughts disappears, which is weird because I never felt like myself before I met you. It felt like I was forced to be a person who seemed perfect and didn't fall apart. Over time, I started to question who I really was. I realized that while I was forced to be someone else, I lost myself and found myself later on. My world was indeed in black and white before we met. Now, it seems as if you’re adding the color that was missing. There’s a fear in the back of my mind that one day you’ll see me the way the others did. People around us should see that my intentions toward you are true. No matter how strong or how big my fear of losing you is, I’ll try my best just to keep you.</p>
+
+        <p>Yes, I’m a mess, but I’m glad to be stuck with you. Sometimes all I can think about is us in our own world. I don’t know what the future holds, but I do know that I want it with you. I promise to keep choosing you, even on the days my fear tries to take over.</p>
+      </div>
+
+      <div class="music-player">
+        <h2>🎵 A song for you</h2>
+        <p><strong>Letter Home</strong> — Childish Gambino</p>
+        <p class="small-note">
+          The song plays in the background as you explore this little website. ♡
+        </p>
+      </div>
+    </article>
+  </div>
+
+  <div class="page-actions">
+    <button class="btn" onclick="showPage('memoriesPage')">← Back to memories</button>
+    <button class="btn btn-pink" onclick="showPage('passcodePage')">Continue to the secret 🔐</button>
+  </div>
+</section>
+
+<!-- PAGE 5: PASSCODE -->
+
 <section class="page hidden" id="passcodePage">
   <div class="frame-wrap">
-    <img class="edge-character passcode-character"
-         src="IMG_2725.jpeg" alt="">
+    <img class="edge-character passcode-character" src="IMG_2725.jpeg" alt="">
     <div class="frame">
       <p class="heart">🔐 🩵</p>
       <h1>A little secret</h1>
       <p>There is one more thing waiting for you.</p>
-      <p class="small-note" id="birthdateHint">
-        Hint: a little secret. ♡
-      </p>
+      <p class="small-note" id="birthdateHint">Hint: a little secret. ♡</p>
       <form id="codeForm">
-        <input
-          class="code-input"
-          id="passcode"
-          type="password"
-          inputmode="text"
-          autocomplete="off"
-          maxlength="128"
-          placeholder="Enter passcode"
-          aria-label="Enter passcode"
-          required
-        >
+        <input class="code-input" id="passcode" type="password"
+          inputmode="text" autocomplete="off" maxlength="128"
+          placeholder="Enter passcode" aria-label="Enter passcode" required>
         <button class="btn" type="submit">Unlock ♡</button>
       </form>
       <p class="feedback" id="codeFeedback" aria-live="polite"></p>
-      <p class="small-note" id="attemptText">
-        Six attempts available.
-      </p>
+      <p class="small-note" id="attemptText">Six attempts available.</p>
     </div>
   </div>
 </section>
-<!-- PAGE 5: NEXT CLIP QUESTION -->
+
+<!-- PAGE 6: NEXT CLIP QUESTION -->
+
 <section class="page hidden" id="questionPage">
   <div class="frame-wrap">
     <div class="frame question-card">
@@ -651,215 +910,467 @@ footer {
       <h2>Do you want to see the next clip? 👀</h2>
       <p>I made a little something for you. ♡</p>
       <div class="button-row">
-        <button class="btn btn-pink" onclick="showPoster()">
-          YES, SHOW ME! 🩷
-        </button>
-        <button class="btn" id="noButton" onclick="handleNo()">
-          NO 🙈
-        </button>
+        <button class="btn btn-pink" onclick="showPoster()">YES, SHOW ME! 🩷</button>
+        <button class="btn" id="noButton" onclick="handleNo()">NO 🙈</button>
       </div>
       <div id="pleaseArea" class="hidden">
-        <img
-          class="please-picture"
-          src="IMG_2724.jpeg"
-          alt="Stitch peeking out"
-        >
+        <img class="please-picture" src="IMG_2724.jpeg" alt="A little character peeking out">
         <p class="please-message">Pretty please? ♡</p>
         <p>I've made something special for you. 🩵</p>
-        <button class="btn btn-pink" onclick="showPoster()">
-          Okay, show me 💗
-        </button>
+        <button class="btn btn-pink" onclick="showPoster()">Okay, show me 💗</button>
       </div>
     </div>
   </div>
 </section>
-<!-- PAGE 6: FINAL POSTER -->
+
+<!-- PAGE 7: FINAL POSTER -->
+
 <section class="page hidden" id="posterPage">
   <p class="heart">🩵 ⭐ 🩷 ⭐ 🩵</p>
   <h1>One last thing...</h1>
   <p>Made especially for you. ♡</p>
   <div class="poster-frame">
-    <div class="poster-stars">★ ★ ★ ★</div>
-    <img
-      class="poster-image"
-      src="IMG_2744.png"
-      alt="Your special proposal poster"
-    >
-    <div class="poster-stars">★ ★ ★ ★</div>
+    <div class="poster-stars" aria-hidden="true">★ ★ ★ ★</div>
+    <img class="poster-image" id="posterImage" src="IMG_2744.png"
+      alt="Your special proposal poster" tabindex="0" role="button"
+      aria-label="View the proposal poster larger">
+    <div class="poster-stars" aria-hidden="true">★ ★ ★ ★</div>
   </div>
-  <p>
-    Whatever your answer, thank you for taking the time to read this. ♡
-  </p>
-  <button class="btn btn-pink" onclick="showPage('secretPage')">
-    One more little secret 💌
-  </button>
+  <p class="small-note">You can tap the poster to see it larger.</p>
+  <p>Whatever your answer, thank you for taking the time to read this. ♡</p>
+  <button class="btn btn-pink" onclick="showPage('secretPage')">One more little secret 💌</button>
   <footer>Made with care 🩵</footer>
 </section>
-<!-- PAGE 7: SECRET MESSAGE -->
+
+<!-- PAGE 8: SECRET MESSAGE -->
+
 <section class="page hidden" id="secretPage">
   <div class="frame-wrap">
     <div class="frame">
       <p class="heart">🩵 ✨ 🩷</p>
       <h1>A tiny secret</h1>
-      <p>
-        There's one more thing I wanted you to find.
-        Tap the heart below. ♡
-      </p>
-      <button
-        class="secret-heart"
-        id="secretHeart"
-        type="button"
-        onclick="revealSecret()"
-        aria-label="Reveal the secret message"
-      >
-        ♡
-      </button>
+      <p>There's one more thing I wanted you to find. Tap the heart below. ♡</p>
+      <button class="secret-heart" id="secretHeart" type="button"
+        onclick="revealSecret()" aria-label="Reveal the secret message"
+        aria-expanded="false" aria-controls="secretMessage">♡</button>
+
       <div class="secret-reveal hidden" id="secretMessage" aria-live="polite">
         <h2>Just so you know... 🩵</h2>
-        <p>
-          You matter to me, and making this little corner of the
-          internet was my way of putting some of my feelings into
-          something you could keep.
-        </p>
-        <p>
-          You don't have to have the perfect answer.
-          I just hope this made you smile. ♡
-        </p>
+        <p>You matter to me, and making this little corner of the internet was my way of putting some of my feelings into something you could keep.</p>
+        <p>You don't have to have the perfect answer. I just hope this made you smile. ♡</p>
       </div>
-      <p class="small-note" id="secretHint">
-        A little surprise is waiting. ♡
-      </p>
+
+      <p class="small-note" id="secretHint">A little surprise is waiting. ♡</p>
     </div>
   </div>
-  <button class="btn" onclick="showPage('endingPage')">
-    Finish our little journey 🩵
-  </button>
+  <button class="btn" onclick="showPage('endingPage')">Finish our little journey 🩵</button>
 </section>
-<!-- PAGE 8: ENDING -->
+
+<!-- PAGE 9: ENDING -->
+
 <section class="page hidden" id="endingPage">
   <div class="frame-wrap">
     <div class="ending-card">
       <div class="ending-symbol">🩵 💌 🩷</div>
       <h1>And that's everything...</h1>
-      <p>
-        I made this with care, a little creativity, and a lot of
-        thought about you.
-      </p>
-      <p>
-        Thank you for opening every page and taking the time
-        to see what I wanted to share.
-      </p>
-      <p>
-        Whatever happens next, I hope we can always be honest
-        with each other and treat each other with kindness.
-      </p>
-      <p style="color:#557fc2; font-style:italic;">
-        You were the reason behind this little website. ♡
-      </p>
+      <p>I made this with care, a little creativity, and a lot of thought about you.</p>
+      <p>Thank you for opening every page and taking the time to see what I wanted to share.</p>
+      <p>Whatever happens next, I hope we can always be honest with each other and treat each other with kindness.</p>
+      <p style="color:#557fc2; font-style:italic;">You were the reason behind this little website. ♡</p>
       <div class="heart">⭐ 🩵 ♡ 🩷 ⭐</div>
-      <button class="btn btn-pink" onclick="replayWebsite()">
-        Read it again ♡
-      </button>
+      <p class="small-note">Want to look back at a favourite part?</p>
+      <div class="page-actions">
+        <button class="btn" onclick="revisitLetter()">Read the letter again 💌</button>
+        <button class="btn btn-pink" onclick="revisitMemories()">Revisit the memories 📸</button>
+      </div>
+      <div class="page-actions">
+        <button class="btn" onclick="replayWebsite()">Start from the beginning ♡</button>
+      </div>
       <footer>Made especially for you, with care. 🩵</footer>
     </div>
   </div>
 </section>
+
 </main>
+
+<!-- PHOTO VIEWER -->
+
+<div class="photo-viewer hidden" id="photoViewer"
+  role="dialog" aria-modal="true" aria-label="Photo viewer" aria-hidden="true">
+  <button class="viewer-close" id="viewerClose" type="button" aria-label="Close photo viewer">×</button>
+  <div class="viewer-content">
+    <img class="viewer-image" id="viewerImage" src="" alt="">
+    <p class="viewer-caption" id="viewerCaption"></p>
+    <div class="viewer-controls">
+      <button class="viewer-btn" id="viewerPrevious" type="button">← Previous</button>
+      <span id="viewerCounter">1 of 1</span>
+      <button class="viewer-btn" id="viewerNext" type="button">Next →</button>
+    </div>
+    <p class="small-note" style="color:#e6edff;">Tap outside the photo or press Escape to close.</p>
+  </div>
+</div>
+
 <script>
-/* PROGRESS INDICATOR */
+/* BACKGROUND MUSIC */
+
+const music = document.getElementById("backgroundMusic");
+
+music.volume = 0.7;
+
+/*
+  Timestamp settings for the revisit buttons.
+  Change these numbers to the number of seconds into the song
+  where you want each section to begin.
+
+  0 seconds = beginning of the song
+  45 seconds = 0:45
+  90 seconds = 1:30
+*/
+const musicTimestamps = {
+  beginning: 0,
+  letter: 45,
+  memories: 90
+};
+
+let musicHasStarted = false;
+
+function startMusicFrom(timestamp) {
+  const startAt = Number.isFinite(timestamp) ? timestamp : 0;
+
+  /*
+    Pause before seeking so the song can start at the chosen point.
+    The song must be loaded before its currentTime can be set.
+  */
+  music.pause();
+
+  const seekAndPlay = function() {
+    try {
+      music.currentTime = startAt;
+    } catch (error) {
+      // If seeking is not available yet, playback will still be attempted.
+    }
+
+    music.play().then(function() {
+      musicHasStarted = true;
+    }).catch(function() {
+      /*
+        The browser may block playback until the visitor taps the page.
+        The next user interaction will try again.
+      */
+    });
+  };
+
+  if (music.readyState >= 1) {
+    seekAndPlay();
+  } else {
+    music.addEventListener("loadedmetadata", seekAndPlay, { once: true });
+    music.load();
+  }
+}
+
+function tryStartMusic() {
+  if (musicHasStarted && !music.paused) return;
+
+  music.play().then(function() {
+    musicHasStarted = true;
+  }).catch(function() {
+    // iPad Safari may require a tap before it permits background audio.
+  });
+}
+
+/* Try autoplay when the website opens. */
+window.addEventListener("load", function() {
+  tryStartMusic();
+});
+
+/* PAGE ORDER AND PROGRESS */
+
 const pageOrder = [
   "envelopePage",
   "letterPage",
   "memoriesPage",
+  "whyYouPage",
   "passcodePage",
   "questionPage",
   "posterPage",
   "secretPage",
   "endingPage"
 ];
+
 const pageLabels = [
   "A little beginning ♡",
   "A letter for you 💌",
   "Little memories 📸",
+  "WHY YOU⁉️ 🩵",
   "A little secret 🔐",
   "One little question 👀",
   "The special reveal ⭐",
   "One last secret 💗",
   "The end of our journey 🩵"
 ];
+
 const progressShell = document.getElementById("progressShell");
 const progressLabel = document.getElementById("progressLabel");
 const progressCount = document.getElementById("progressCount");
 const progressFill = document.getElementById("progressFill");
 const progressBar = document.getElementById("progressBar");
+
 function updateProgress(pageId) {
   const index = pageOrder.indexOf(pageId);
+
   if (index <= 0) {
     progressShell.classList.add("hidden");
     return;
   }
+
   progressShell.classList.remove("hidden");
   progressLabel.textContent = pageLabels[index];
   progressCount.textContent =
     "Step " + (index + 1) + " of " + pageOrder.length;
+
   const percent = ((index + 1) / pageOrder.length) * 100;
+
   progressFill.style.width = percent + "%";
+  progressBar.setAttribute("aria-valuemax", pageOrder.length);
   progressBar.setAttribute("aria-valuenow", index + 1);
 }
+
+/* PAGE NAVIGATION */
+
+function showPage(pageId) {
+  const targetPage = document.getElementById(pageId);
+  if (!targetPage) return;
+
+  document.querySelectorAll(".page").forEach(function(page) {
+    page.classList.add("hidden");
+  });
+
+  targetPage.classList.remove("hidden");
+  updateProgress(pageId);
+
+  /*
+    The ending page is the end of the experience.
+    Stop the song when she reaches it.
+  */
+  if (pageId === "endingPage") {
+    music.pause();
+  }
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function openLetter() {
+  /*
+    This button is a user gesture, so it gives Safari another
+    opportunity to start the music if autoplay was blocked.
+  */
+  tryStartMusic();
+  showPage("letterPage");
+}
+
 /* FLOATING HEARTS AND STARS */
-const decorationContainer =
-  document.getElementById("floatingDecorations");
+
+const decorationContainer = document.getElementById("floatingDecorations");
 const decorationSymbols = ["♡", "♥", "✦", "✧", "⋆"];
-const decorationColours = [
-  "#e786b5",
-  "#79aaff",
-  "#f3a4c7",
-  "#a8c9ff"
-];
+const decorationColours = ["#e786b5", "#79aaff", "#f3a4c7", "#a8c9ff"];
+
 for (let i = 0; i < 12; i++) {
   const decoration = document.createElement("span");
   decoration.className = "floating-decor";
-  decoration.textContent =
-    decorationSymbols[i % decorationSymbols.length];
+  decoration.textContent = decorationSymbols[i % decorationSymbols.length];
   decoration.style.left = (Math.random() * 96) + "%";
   decoration.style.animationDelay = (Math.random() * 8) + "s";
-  decoration.style.animationDuration =
-    (7 + Math.random() * 5) + "s";
-  decoration.style.fontSize =
-    (14 + Math.random() * 17) + "px";
-  decoration.style.color =
-    decorationColours[i % decorationColours.length];
+  decoration.style.animationDuration = (7 + Math.random() * 5) + "s";
+  decoration.style.fontSize = (14 + Math.random() * 17) + "px";
+  decoration.style.color = decorationColours[i % decorationColours.length];
   decorationContainer.appendChild(decoration);
 }
+
+/* TAP HEART EFFECT */
+
+document.addEventListener("click", function(event) {
+  if (event.target.closest("button, input, form, .photo-viewer, img, audio")) {
+    return;
+  }
+
+  if (event.target.closest(".memory-card")) return;
+
+  const heart = document.createElement("span");
+  heart.className = "tap-heart";
+  heart.textContent = Math.random() > 0.5 ? "♡" : "♥";
+  heart.style.left = event.clientX + "px";
+  heart.style.top = event.clientY + "px";
+  document.body.appendChild(heart);
+
+  heart.addEventListener("animationend", function() {
+    heart.remove();
+  });
+
+  setTimeout(function() {
+    heart.remove();
+  }, 1200);
+});
+
+/* PHOTO VIEWER */
+
+const photoViewer = document.getElementById("photoViewer");
+const viewerImage = document.getElementById("viewerImage");
+const viewerCaption = document.getElementById("viewerCaption");
+const viewerCounter = document.getElementById("viewerCounter");
+const viewerClose = document.getElementById("viewerClose");
+const viewerPrevious = document.getElementById("viewerPrevious");
+const viewerNext = document.getElementById("viewerNext");
+
+let viewerPhotos = [];
+let viewerIndex = 0;
+let lastFocusedElement = null;
+
+function collectMemoryPhotos() {
+  return Array.from(
+    document.querySelectorAll(".memory-card img")
+  ).filter(function(image) {
+    return image.complete && image.naturalWidth > 0;
+  });
+}
+
+function openPhotoViewer(image) {
+  viewerPhotos = collectMemoryPhotos();
+
+  if (image.id === "posterImage" &&
+      image.complete && image.naturalWidth > 0) {
+    viewerPhotos.push(image);
+  }
+
+  if (viewerPhotos.length === 0) return;
+
+  viewerIndex = viewerPhotos.indexOf(image);
+  if (viewerIndex < 0) viewerIndex = 0;
+
+  lastFocusedElement = image;
+  photoViewer.classList.remove("hidden");
+  photoViewer.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+
+  updateViewer();
+  viewerClose.focus();
+}
+
+function updateViewer() {
+  if (!viewerPhotos.length) return;
+
+  const image = viewerPhotos[viewerIndex];
+  viewerImage.src = image.src;
+  viewerImage.alt = image.alt || "Memory photo";
+  viewerCaption.textContent =
+    image.dataset.caption || image.alt || "A little memory. ♡";
+  viewerCounter.textContent =
+    (viewerIndex + 1) + " of " + viewerPhotos.length;
+
+  const hasMultiple = viewerPhotos.length > 1;
+  viewerPrevious.disabled = !hasMultiple;
+  viewerNext.disabled = !hasMultiple;
+}
+
+function closePhotoViewer() {
+  if (photoViewer.classList.contains("hidden")) return;
+
+  photoViewer.classList.add("hidden");
+  photoViewer.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+  viewerImage.src = "";
+
+  if (lastFocusedElement && document.contains(lastFocusedElement)) {
+    lastFocusedElement.focus();
+  }
+}
+
+function moveViewer(direction) {
+  if (viewerPhotos.length < 2) return;
+  viewerIndex =
+    (viewerIndex + direction + viewerPhotos.length) % viewerPhotos.length;
+  updateViewer();
+}
+
+document.querySelectorAll(".memory-card img").forEach(function(image) {
+  image.addEventListener("click", function() {
+    openPhotoViewer(image);
+  });
+
+  image.addEventListener("keydown", function(event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openPhotoViewer(image);
+    }
+  });
+
+  image.addEventListener("error", function() {
+    image.style.display = "none";
+  });
+});
+
+const posterImage = document.getElementById("posterImage");
+
+posterImage.addEventListener("click", function() {
+  openPhotoViewer(posterImage);
+});
+
+posterImage.addEventListener("keydown", function(event) {
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    openPhotoViewer(posterImage);
+  }
+});
+
+viewerClose.addEventListener("click", closePhotoViewer);
+viewerPrevious.addEventListener("click", function() { moveViewer(-1); });
+viewerNext.addEventListener("click", function() { moveViewer(1); });
+
+photoViewer.addEventListener("click", function(event) {
+  if (event.target === photoViewer) closePhotoViewer();
+});
+
+document.addEventListener("keydown", function(event) {
+  if (photoViewer.classList.contains("hidden")) return;
+
+  if (event.key === "Escape") closePhotoViewer();
+  else if (event.key === "ArrowLeft") moveViewer(-1);
+  else if (event.key === "ArrowRight") moveViewer(1);
+});
+
 /* PASSCODE CHECK */
+
 const correctPasscode = "12/10";
 const maximumAttempts = 6;
 const lockoutDuration = 60;
+
 let attempts = 0;
 let lockedUntil = 0;
 let lockoutTimer = null;
+
 const codeForm = document.getElementById("codeForm");
 const codeInput = document.getElementById("passcode");
 const codeFeedback = document.getElementById("codeFeedback");
 const attemptText = document.getElementById("attemptText");
 const birthdateHint = document.getElementById("birthdateHint");
 const unlockButton = codeForm.querySelector("button");
+
 function updateLockout() {
-  const secondsLeft = Math.ceil(
-    (lockedUntil - Date.now()) / 1000
-  );
+  const secondsLeft = Math.ceil((lockedUntil - Date.now()) / 1000);
+
   if (secondsLeft > 0) {
     codeInput.disabled = true;
     unlockButton.disabled = true;
     codeFeedback.textContent =
-      "Too many attempts. Try again in " +
-      secondsLeft + " seconds.";
-    attemptText.textContent =
-      "The page is temporarily locked.";
+      "Too many attempts. Try again in " + secondsLeft + " seconds.";
+    attemptText.textContent = "The page is temporarily locked.";
     return;
   }
-  clearInterval(lockoutTimer);
-  lockoutTimer = null;
+
+  if (lockoutTimer) {
+    clearInterval(lockoutTimer);
+    lockoutTimer = null;
+  }
+
   lockedUntil = 0;
   attempts = 0;
   codeInput.disabled = false;
@@ -867,166 +1378,206 @@ function updateLockout() {
   codeFeedback.textContent = "You can try again now.";
   attemptText.textContent = "Six attempts available.";
 }
+
 function beginLockout() {
   lockedUntil = Date.now() + lockoutDuration * 1000;
   updateLockout();
-  lockoutTimer = setInterval(function() {
-    updateLockout();
-  }, 1000);
+
+  if (lockoutTimer) clearInterval(lockoutTimer);
+  lockoutTimer = setInterval(updateLockout, 1000);
 }
+
 codeForm.addEventListener("submit", function(event) {
   event.preventDefault();
+
   if (Date.now() < lockedUntil) {
     updateLockout();
     return;
   }
+
   const enteredCode = codeInput.value.trim();
+
   if (enteredCode === correctPasscode) {
     codeFeedback.textContent = "";
     codeInput.value = "";
     showPage("questionPage");
     return;
   }
+
   attempts++;
   codeInput.value = "";
+
   if (attempts >= 2) {
-    birthdateHint.textContent =
-      "Hint: try your birthdate 😉🩵";
+    birthdateHint.textContent = "Hint: try your birthdate 😉🩵";
   }
+
   if (attempts >= maximumAttempts) {
     beginLockout();
     return;
   }
+
   const remaining = maximumAttempts - attempts;
-  codeFeedback.textContent =
-    "That isn't quite right. Try again. ♡";
+  codeFeedback.textContent = "That isn't quite right. Try again. ♡";
   attemptText.textContent =
-    remaining +
-    (remaining === 1 ? " attempt" : " attempts") +
+    remaining + (remaining === 1 ? " attempt" : " attempts") +
     " remaining.";
 });
-/* PAGE NAVIGATION */
-function showPage(pageId) {
-  const targetPage = document.getElementById(pageId);
-  if (!targetPage) return;
-  document.querySelectorAll(".page").forEach(function(page) {
-    page.classList.add("hidden");
-  });
-  targetPage.classList.remove("hidden");
-  updateProgress(pageId);
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-}
-function openLetter() {
-  showPage("letterPage");
-}
+
 /* SECRET MESSAGE */
+
 function revealSecret() {
-  const secretMessage =
-    document.getElementById("secretMessage");
-  const secretHeart =
-    document.getElementById("secretHeart");
-  const secretHint =
-    document.getElementById("secretHint");
+  const secretMessage = document.getElementById("secretMessage");
+  const secretHeart = document.getElementById("secretHeart");
+  const secretHint = document.getElementById("secretHint");
+
   secretMessage.classList.remove("hidden");
   secretHeart.textContent = "♥";
-  secretHeart.setAttribute(
-    "aria-label",
-    "Secret message revealed"
-  );
-  secretHint.textContent =
-    "A little message, just for you. 🩵";
+  secretHeart.setAttribute("aria-label", "Secret message revealed");
+  secretHeart.setAttribute("aria-expanded", "true");
+  secretHint.textContent = "A little message, just for you. 🩵";
   secretHeart.disabled = true;
   secretHeart.style.animation = "none";
 }
-/* NO BUTTON: MOVE, THEN DISAPPEAR */
+
+/* NO BUTTON */
+
 let noClicks = 0;
 let noIsGone = false;
+let noButtonTimer = null;
+
 function handleNo() {
   if (noIsGone) return;
+
   noClicks++;
+
   const noButton = document.getElementById("noButton");
   const pleaseArea = document.getElementById("pleaseArea");
+
   const messages = [
     "Wait 😭",
     "Are you sure? 🥹",
     "Think again! 💗",
     "One more chance? 🩵"
   ];
+
   if (noClicks <= 4) {
-    const x = Math.random() * 120 - 60;
-    const y = Math.random() * 70 - 35;
-    noButton.style.transform =
-      "translate(" + x + "px, " + y + "px)";
+    const x = Math.random() * 100 - 50;
+    const y = Math.random() * 50 - 25;
+    noButton.style.transform = "translate(" + x + "px, " + y + "px)";
     noButton.textContent = messages[noClicks - 1];
   }
+
   if (noClicks >= 5) {
     noIsGone = true;
     noButton.classList.add("disappearing");
-    setTimeout(function() {
+
+    noButtonTimer = setTimeout(function() {
       noButton.style.display = "none";
       pleaseArea.classList.remove("hidden");
+      noButtonTimer = null;
     }, 300);
   }
 }
+
 /* FINAL POSTER */
+
 function showPoster() {
   showPage("posterPage");
 }
-/* REPLAY THE WEBSITE */
+
+/* REVISIT PAGES WITH DIFFERENT MUSIC TIMESTAMPS */
+
+function revisitLetter() {
+  showPage("letterPage");
+  startMusicFrom(musicTimestamps.letter);
+}
+
+function revisitMemories() {
+  showPage("memoriesPage");
+  startMusicFrom(musicTimestamps.memories);
+}
+
+/* REPLAY WEBSITE */
+
 function replayWebsite() {
   attempts = 0;
   lockedUntil = 0;
+
   if (lockoutTimer) {
     clearInterval(lockoutTimer);
     lockoutTimer = null;
   }
+
+  if (noButtonTimer) {
+    clearTimeout(noButtonTimer);
+    noButtonTimer = null;
+  }
+
+  closePhotoViewer();
+
   codeInput.value = "";
   codeInput.disabled = false;
   unlockButton.disabled = false;
   codeFeedback.textContent = "";
   attemptText.textContent = "Six attempts available.";
-  birthdateHint.textContent =
-    "Hint: a little secret. ♡";
-  /* Reset the NO button */
+  birthdateHint.textContent = "Hint: a little secret. ♡";
+
   noClicks = 0;
   noIsGone = false;
+
   const noButton = document.getElementById("noButton");
   noButton.style.display = "";
   noButton.style.transform = "";
   noButton.classList.remove("disappearing");
   noButton.textContent = "NO 🙈";
-  document.getElementById("pleaseArea")
-    .classList.add("hidden");
-  /* Reset the secret message */
-  document.getElementById("secretMessage")
-    .classList.add("hidden");
+
+  document.getElementById("pleaseArea").classList.add("hidden");
+  document.getElementById("secretMessage").classList.add("hidden");
+
   const secretHeart = document.getElementById("secretHeart");
   secretHeart.textContent = "♡";
   secretHeart.disabled = false;
   secretHeart.style.animation = "";
-  secretHeart.setAttribute(
-    "aria-label",
-    "Reveal the secret message"
-  );
+  secretHeart.setAttribute("aria-label", "Reveal the secret message");
+  secretHeart.setAttribute("aria-expanded", "false");
+
   document.getElementById("secretHint").textContent =
     "A little surprise is waiting. ♡";
+
+  /*
+    Restart from the envelope and reset the song to 0:00.
+    If the browser blocks playback, the next tap will start it.
+  */
+  music.pause();
+
+  try {
+    music.currentTime = musicTimestamps.beginning;
+  } catch (error) {
+    // The track may not have loaded yet.
+  }
+
+  musicHasStarted = false;
+
   showPage("envelopePage");
+  startMusicFrom(musicTimestamps.beginning);
 }
+
 /* HIDE BACKGROUND IMAGES IF FILENAMES DON'T MATCH */
+
 document.querySelectorAll(".bg-photo").forEach(function(image) {
   image.addEventListener("error", function() {
     image.style.display = "none";
   });
 });
-/* HANDLE MISSING MEMORY PICTURES */
-document.querySelectorAll(".memory-card img").forEach(function(image) {
-  image.addEventListener("error", function() {
-    image.style.display = "none";
-  });
+
+viewerImage.addEventListener("error", function() {
+  viewerCaption.textContent = "This picture could not be loaded.";
 });
+
+/* START AT THE ENVELOPE */
+
+showPage("envelopePage");
 </script>
+
 </body>
 </html>

@@ -15,6 +15,7 @@
   --ink: #30415f;
 }
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
   min-height: 100vh;
@@ -30,6 +31,11 @@ button, input { font: inherit; }
 button {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+}
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #e786b5;
+  outline-offset: 4px;
 }
 .hidden { display: none !important; }
 /* BACKGROUND COLLAGE */
@@ -62,12 +68,65 @@ button {
   transform: translateX(-50%) rotate(5deg);
   opacity: .13;
 }
+/* FLOATING HEARTS */
+.floating-decor {
+  position: fixed;
+  z-index: 0;
+  bottom: -40px;
+  pointer-events: none;
+  opacity: 0;
+  animation: floatUp 8s linear infinite;
+}
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(.7);
+    opacity: 0;
+  }
+  15% { opacity: .55; }
+  80% { opacity: .4; }
+  100% {
+    transform: translateY(-110vh) rotate(35deg) scale(1.2);
+    opacity: 0;
+  }
+}
 main {
   position: relative;
   z-index: 1;
   width: 100%;
   min-height: 100vh;
   padding: 35px 18px 60px;
+}
+/* PROGRESS */
+.progress-shell {
+  width: min(100%, 680px);
+  margin: 0 auto 28px;
+  padding: 12px 15px;
+  background: rgba(255,255,255,.66);
+  border: 1px solid #ffffff;
+  border-radius: 18px;
+  backdrop-filter: blur(8px);
+}
+.progress-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 9px;
+  font-size: .82rem;
+  color: #5574a5;
+}
+.progress-track {
+  height: 7px;
+  background: #e6eafa;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #79aaff, #f3a4c7);
+  border-radius: inherit;
+  transition: width .55s ease;
 }
 .page {
   width: min(100%, 680px);
@@ -93,11 +152,12 @@ p { line-height: 1.8; }
   background: var(--deep-blue);
   color: white;
   box-shadow: 0 5px 14px #315caa30;
-  transition: transform .2s, background .2s;
+  transition: transform .2s, background .2s, box-shadow .2s;
 }
 .btn:hover {
   transform: translateY(-2px);
   background: #24498c;
+  box-shadow: 0 8px 20px #315caa35;
 }
 .btn-pink { background: #e786b5; }
 .btn-pink:hover { background: #d96b9e; }
@@ -105,8 +165,12 @@ p { line-height: 1.8; }
   opacity: .6;
   cursor: not-allowed;
 }
+.heart {
+  font-size: 1.5rem;
+  margin: 10px;
+}
 /* ENVELOPE */
-.envelope-wrap { padding-top: 12vh; }
+.envelope-wrap { padding-top: 7vh; }
 .envelope {
   position: relative;
   width: min(82vw, 340px);
@@ -116,6 +180,11 @@ p { line-height: 1.8; }
   border-radius: 8px;
   box-shadow: 0 15px 35px #5279ad35;
   overflow: hidden;
+  animation: envelopeFloat 3s ease-in-out infinite;
+}
+@keyframes envelopeFloat {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-7px) rotate(.5deg); }
 }
 .envelope:before {
   content: "";
@@ -146,12 +215,11 @@ p { line-height: 1.8; }
   place-items: center;
   font-size: 2.5rem;
 }
-.heart { font-size: 1.5rem; margin: 10px; }
 /* FRAMES */
 .frame-wrap {
   position: relative;
   width: min(100%, 560px);
-  margin: 60px auto 35px;
+  margin: 45px auto 35px;
 }
 .frame {
   position: relative;
@@ -167,9 +235,14 @@ p { line-height: 1.8; }
   color: #ffc943;
   font-size: 31px;
   z-index: 3;
+  animation: starTwinkle 2.5s ease-in-out infinite;
 }
 .frame:before { top: -20px; left: -18px; }
 .frame:after { bottom: -20px; right: -18px; }
+@keyframes starTwinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .6; transform: scale(1.15); }
+}
 .frame-title { margin-top: 0; color: #557fc2; }
 .edge-character {
   position: absolute;
@@ -216,6 +289,52 @@ p { line-height: 1.8; }
   color: var(--deep-blue);
   font-style: italic;
   margin-top: 28px;
+}
+/* MEMORIES */
+.memories-intro {
+  max-width: 500px;
+  margin: 0 auto 25px;
+}
+.memories-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+  margin: 28px 0;
+}
+.memory-card {
+  background: #fff;
+  padding: 10px 10px 16px;
+  border-radius: 9px;
+  box-shadow: 0 7px 22px #315caa20;
+  transform: rotate(-1deg);
+  transition: transform .25s, box-shadow .25s;
+}
+.memory-card:nth-child(even) {
+  transform: rotate(1.5deg);
+}
+.memory-card:hover {
+  transform: translateY(-4px) rotate(0);
+  box-shadow: 0 12px 28px #315caa30;
+}
+.memory-card img {
+  display: block;
+  width: 100%;
+  height: 155px;
+  object-fit: contain;
+  background: #f6f7ff;
+  border-radius: 5px;
+}
+.memory-card p {
+  font-size: .88rem;
+  margin: 12px 3px 0;
+  color: #5574a5;
+  line-height: 1.5;
+}
+.memory-note {
+  background: linear-gradient(135deg, #fff0f7, #eaf2ff);
+  border-radius: 14px;
+  padding: 16px;
+  margin: 25px 0;
 }
 /* PASSCODE */
 .code-input {
@@ -311,10 +430,68 @@ p { line-height: 1.8; }
   letter-spacing: 12px;
   margin: 12px 0;
 }
+/* SECRET MESSAGE */
+.secret-heart {
+  display: inline-grid;
+  place-items: center;
+  width: 115px;
+  height: 115px;
+  border: 2px solid #f3a4c7;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #fff0f7, #dceaff);
+  color: #d96b9e;
+  font-size: 3.5rem;
+  box-shadow: 0 8px 25px #e786b530;
+  animation: heartbeat 1.8s ease-in-out infinite;
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  12% { transform: scale(1.07); }
+  24% { transform: scale(1); }
+  36% { transform: scale(1.05); }
+}
+.secret-reveal {
+  background: linear-gradient(145deg, #fff0f7, #eaf2ff);
+  border: 1px solid #f3c5dc;
+  border-radius: 18px;
+  padding: 22px;
+  margin: 25px 0;
+  animation: fadeIn .65s ease both;
+}
+/* ENDING */
+.ending-card {
+  background: rgba(255,255,255,.9);
+  border: 3px solid #b8d2ff;
+  border-radius: 22px;
+  padding: clamp(25px, 7vw, 45px);
+  box-shadow: 0 15px 40px #315caa25;
+}
+.ending-symbol {
+  font-size: 3rem;
+  animation: endingFloat 3s ease-in-out infinite;
+}
+@keyframes endingFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
 footer {
   padding: 30px 10px 0;
   color: #6b7c98;
   font-size: .8rem;
+}
+@media (max-width: 400px) {
+  .memories-grid { gap: 10px; }
+  .memory-card { padding: 7px 7px 12px; }
+  .memory-card img { height: 125px; }
+  .progress-top { font-size: .75rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
 }
 </style>
 </head>
@@ -329,7 +506,27 @@ footer {
   <img class="bg-photo bg6" src="IMG_2730.jpeg" alt="">
   <img class="bg-photo bg7" src="IMG_2733.jpeg" alt="">
 </div>
+<!-- FLOATING DECORATIONS -->
+<div id="floatingDecorations" aria-hidden="true"></div>
 <main>
+<!-- PROGRESS INDICATOR -->
+<div class="progress-shell hidden" id="progressShell">
+  <div class="progress-top">
+    <span id="progressLabel">Your little journey ♡</span>
+    <span id="progressCount">Step 1 of 8</span>
+  </div>
+  <div
+    class="progress-track"
+    role="progressbar"
+    aria-label="Website progress"
+    aria-valuemin="1"
+    aria-valuemax="8"
+    aria-valuenow="1"
+    id="progressBar"
+  >
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+</div>
 <!-- PAGE 1: ENVELOPE -->
 <section class="page envelope-wrap" id="envelopePage">
   <p class="heart">🩵 💌 🩷</p>
@@ -366,11 +563,54 @@ footer {
       <p class="signature">Yours, with love. ♡</p>
     </article>
   </div>
-  <button class="btn" onclick="showPage('passcodePage')">
-    Continue 🩵
+  <button class="btn" onclick="showPage('memoriesPage')">
+    A few memories 🩵
   </button>
 </section>
-<!-- PAGE 3: PASSCODE -->
+<!-- PAGE 3: MEMORIES -->
+<section class="page hidden" id="memoriesPage">
+  <div class="frame-wrap">
+    <div class="frame">
+      <p class="heart">📸 🩵 ♡ 🩷</p>
+      <h1>Little memories</h1>
+      <p class="memories-intro">
+        Some moments deserve a little place of their own.
+        Here are a few little pieces of this story. ♡
+      </p>
+      <div class="memories-grid">
+        <article class="memory-card">
+          <img src="IMG_2726.jpeg" alt="Memory one">
+          <p>A little moment worth keeping. 🩵</p>
+        </article>
+        <article class="memory-card">
+          <img src="IMG_2727.jpeg" alt="Memory two">
+          <p>Something that reminds me of you. ♡</p>
+        </article>
+        <article class="memory-card">
+          <img src="IMG_2728.jpeg" alt="Memory three">
+          <p>One for the memory book. 🩷</p>
+        </article>
+        <article class="memory-card">
+          <img src="IMG_2729.jpeg" alt="Memory four">
+          <p>Little things can mean a lot. ✨</p>
+        </article>
+      </div>
+      <div class="memory-note">
+        <p>
+          It doesn't always take a big moment to make a memory.
+          Sometimes the smallest things stay with us the longest. ♡
+        </p>
+      </div>
+      <p class="small-note">
+        Every picture has its own little story.
+      </p>
+    </div>
+  </div>
+  <button class="btn" onclick="showPage('passcodePage')">
+    Continue to the secret 🔐
+  </button>
+</section>
+<!-- PAGE 4: PASSCODE -->
 <section class="page hidden" id="passcodePage">
   <div class="frame-wrap">
     <img class="edge-character passcode-character"
@@ -403,7 +643,7 @@ footer {
     </div>
   </div>
 </section>
-<!-- PAGE 4: NEXT CLIP QUESTION -->
+<!-- PAGE 5: NEXT CLIP QUESTION -->
 <section class="page hidden" id="questionPage">
   <div class="frame-wrap">
     <div class="frame question-card">
@@ -433,7 +673,7 @@ footer {
     </div>
   </div>
 </section>
-<!-- PAGE 5: FINAL POSTER -->
+<!-- PAGE 6: FINAL POSTER -->
 <section class="page hidden" id="posterPage">
   <p class="heart">🩵 ⭐ 🩷 ⭐ 🩵</p>
   <h1>One last thing...</h1>
@@ -450,10 +690,147 @@ footer {
   <p>
     Whatever your answer, thank you for taking the time to read this. ♡
   </p>
+  <button class="btn btn-pink" onclick="showPage('secretPage')">
+    One more little secret 💌
+  </button>
   <footer>Made with care 🩵</footer>
+</section>
+<!-- PAGE 7: SECRET MESSAGE -->
+<section class="page hidden" id="secretPage">
+  <div class="frame-wrap">
+    <div class="frame">
+      <p class="heart">🩵 ✨ 🩷</p>
+      <h1>A tiny secret</h1>
+      <p>
+        There's one more thing I wanted you to find.
+        Tap the heart below. ♡
+      </p>
+      <button
+        class="secret-heart"
+        id="secretHeart"
+        type="button"
+        onclick="revealSecret()"
+        aria-label="Reveal the secret message"
+      >
+        ♡
+      </button>
+      <div class="secret-reveal hidden" id="secretMessage" aria-live="polite">
+        <h2>Just so you know... 🩵</h2>
+        <p>
+          You matter to me, and making this little corner of the
+          internet was my way of putting some of my feelings into
+          something you could keep.
+        </p>
+        <p>
+          You don't have to have the perfect answer.
+          I just hope this made you smile. ♡
+        </p>
+      </div>
+      <p class="small-note" id="secretHint">
+        A little surprise is waiting. ♡
+      </p>
+    </div>
+  </div>
+  <button class="btn" onclick="showPage('endingPage')">
+    Finish our little journey 🩵
+  </button>
+</section>
+<!-- PAGE 8: ENDING -->
+<section class="page hidden" id="endingPage">
+  <div class="frame-wrap">
+    <div class="ending-card">
+      <div class="ending-symbol">🩵 💌 🩷</div>
+      <h1>And that's everything...</h1>
+      <p>
+        I made this with care, a little creativity, and a lot of
+        thought about you.
+      </p>
+      <p>
+        Thank you for opening every page and taking the time
+        to see what I wanted to share.
+      </p>
+      <p>
+        Whatever happens next, I hope we can always be honest
+        with each other and treat each other with kindness.
+      </p>
+      <p style="color:#557fc2; font-style:italic;">
+        You were the reason behind this little website. ♡
+      </p>
+      <div class="heart">⭐ 🩵 ♡ 🩷 ⭐</div>
+      <button class="btn btn-pink" onclick="replayWebsite()">
+        Read it again ♡
+      </button>
+      <footer>Made especially for you, with care. 🩵</footer>
+    </div>
+  </div>
 </section>
 </main>
 <script>
+/* PROGRESS INDICATOR */
+const pageOrder = [
+  "envelopePage",
+  "letterPage",
+  "memoriesPage",
+  "passcodePage",
+  "questionPage",
+  "posterPage",
+  "secretPage",
+  "endingPage"
+];
+const pageLabels = [
+  "A little beginning ♡",
+  "A letter for you 💌",
+  "Little memories 📸",
+  "A little secret 🔐",
+  "One little question 👀",
+  "The special reveal ⭐",
+  "One last secret 💗",
+  "The end of our journey 🩵"
+];
+const progressShell = document.getElementById("progressShell");
+const progressLabel = document.getElementById("progressLabel");
+const progressCount = document.getElementById("progressCount");
+const progressFill = document.getElementById("progressFill");
+const progressBar = document.getElementById("progressBar");
+function updateProgress(pageId) {
+  const index = pageOrder.indexOf(pageId);
+  if (index <= 0) {
+    progressShell.classList.add("hidden");
+    return;
+  }
+  progressShell.classList.remove("hidden");
+  progressLabel.textContent = pageLabels[index];
+  progressCount.textContent =
+    "Step " + (index + 1) + " of " + pageOrder.length;
+  const percent = ((index + 1) / pageOrder.length) * 100;
+  progressFill.style.width = percent + "%";
+  progressBar.setAttribute("aria-valuenow", index + 1);
+}
+/* FLOATING HEARTS AND STARS */
+const decorationContainer =
+  document.getElementById("floatingDecorations");
+const decorationSymbols = ["♡", "♥", "✦", "✧", "⋆"];
+const decorationColours = [
+  "#e786b5",
+  "#79aaff",
+  "#f3a4c7",
+  "#a8c9ff"
+];
+for (let i = 0; i < 12; i++) {
+  const decoration = document.createElement("span");
+  decoration.className = "floating-decor";
+  decoration.textContent =
+    decorationSymbols[i % decorationSymbols.length];
+  decoration.style.left = (Math.random() * 96) + "%";
+  decoration.style.animationDelay = (Math.random() * 8) + "s";
+  decoration.style.animationDuration =
+    (7 + Math.random() * 5) + "s";
+  decoration.style.fontSize =
+    (14 + Math.random() * 17) + "px";
+  decoration.style.color =
+    decorationColours[i % decorationColours.length];
+  decorationContainer.appendChild(decoration);
+}
 /* PASSCODE CHECK */
 const correctPasscode = "12/10";
 const maximumAttempts = 6;
@@ -530,10 +907,13 @@ codeForm.addEventListener("submit", function(event) {
 });
 /* PAGE NAVIGATION */
 function showPage(pageId) {
+  const targetPage = document.getElementById(pageId);
+  if (!targetPage) return;
   document.querySelectorAll(".page").forEach(function(page) {
     page.classList.add("hidden");
   });
-  document.getElementById(pageId).classList.remove("hidden");
+  targetPage.classList.remove("hidden");
+  updateProgress(pageId);
   window.scrollTo({
     top: 0,
     behavior: "smooth"
@@ -541,6 +921,25 @@ function showPage(pageId) {
 }
 function openLetter() {
   showPage("letterPage");
+}
+/* SECRET MESSAGE */
+function revealSecret() {
+  const secretMessage =
+    document.getElementById("secretMessage");
+  const secretHeart =
+    document.getElementById("secretHeart");
+  const secretHint =
+    document.getElementById("secretHint");
+  secretMessage.classList.remove("hidden");
+  secretHeart.textContent = "♥";
+  secretHeart.setAttribute(
+    "aria-label",
+    "Secret message revealed"
+  );
+  secretHint.textContent =
+    "A little message, just for you. 🩵";
+  secretHeart.disabled = true;
+  secretHeart.style.animation = "none";
 }
 /* NO BUTTON: MOVE, THEN DISAPPEAR */
 let noClicks = 0;
@@ -576,8 +975,54 @@ function handleNo() {
 function showPoster() {
   showPage("posterPage");
 }
+/* REPLAY THE WEBSITE */
+function replayWebsite() {
+  attempts = 0;
+  lockedUntil = 0;
+  if (lockoutTimer) {
+    clearInterval(lockoutTimer);
+    lockoutTimer = null;
+  }
+  codeInput.value = "";
+  codeInput.disabled = false;
+  unlockButton.disabled = false;
+  codeFeedback.textContent = "";
+  attemptText.textContent = "Six attempts available.";
+  birthdateHint.textContent =
+    "Hint: a little secret. ♡";
+  /* Reset the NO button */
+  noClicks = 0;
+  noIsGone = false;
+  const noButton = document.getElementById("noButton");
+  noButton.style.display = "";
+  noButton.style.transform = "";
+  noButton.classList.remove("disappearing");
+  noButton.textContent = "NO 🙈";
+  document.getElementById("pleaseArea")
+    .classList.add("hidden");
+  /* Reset the secret message */
+  document.getElementById("secretMessage")
+    .classList.add("hidden");
+  const secretHeart = document.getElementById("secretHeart");
+  secretHeart.textContent = "♡";
+  secretHeart.disabled = false;
+  secretHeart.style.animation = "";
+  secretHeart.setAttribute(
+    "aria-label",
+    "Reveal the secret message"
+  );
+  document.getElementById("secretHint").textContent =
+    "A little surprise is waiting. ♡";
+  showPage("envelopePage");
+}
 /* HIDE BACKGROUND IMAGES IF FILENAMES DON'T MATCH */
 document.querySelectorAll(".bg-photo").forEach(function(image) {
+  image.addEventListener("error", function() {
+    image.style.display = "none";
+  });
+});
+/* HANDLE MISSING MEMORY PICTURES */
+document.querySelectorAll(".memory-card img").forEach(function(image) {
   image.addEventListener("error", function() {
     image.style.display = "none";
   });

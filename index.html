@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#a9c9ff">
 <title>Just For You 🩵</title>
-
 <style>
 :root {
   --blue: #79aaff;
@@ -16,9 +14,7 @@
   --light-pink: #fff0f7;
   --ink: #30415f;
 }
-
 * { box-sizing: border-box; }
-
 body {
   margin: 0;
   min-height: 100vh;
@@ -30,11 +26,13 @@ body {
     linear-gradient(135deg, #fceaf3, #dceaff, #fff5fa);
   overflow-x: hidden;
 }
-
 button, input { font: inherit; }
-button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+button {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
 .hidden { display: none !important; }
-
+/* BACKGROUND COLLAGE */
 .background-collage {
   position: fixed;
   inset: 0;
@@ -42,7 +40,6 @@ button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
   pointer-events: none;
   overflow: hidden;
 }
-
 .bg-photo {
   position: absolute;
   width: clamp(90px, 17vw, 190px);
@@ -51,14 +48,12 @@ button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
   opacity: .20;
   mix-blend-mode: multiply;
 }
-
 .bg1 { top: 2%; left: -25px; transform: rotate(-12deg); }
 .bg2 { top: 4%; right: -25px; transform: rotate(12deg); }
 .bg3 { top: 35%; left: -35px; transform: rotate(8deg); }
 .bg4 { top: 40%; right: -30px; transform: rotate(-9deg); }
 .bg5 { bottom: 2%; left: 2%; transform: rotate(-8deg); }
 .bg6 { bottom: 1%; right: 1%; transform: rotate(9deg); }
-
 .bg7 {
   width: clamp(110px, 20vw, 220px);
   height: clamp(110px, 20vw, 220px);
@@ -67,7 +62,6 @@ button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
   transform: translateX(-50%) rotate(5deg);
   opacity: .13;
 }
-
 main {
   position: relative;
   z-index: 1;
@@ -75,28 +69,23 @@ main {
   min-height: 100vh;
   padding: 35px 18px 60px;
 }
-
 .page {
   width: min(100%, 680px);
   margin: 0 auto;
   text-align: center;
   animation: fadeIn .65s ease both;
 }
-
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
 h1, h2 { color: var(--deep-blue); }
 h1 { font-size: clamp(1.8rem, 7vw, 2.8rem); }
 p { line-height: 1.8; }
-
 .small-note {
   font-size: .88rem;
   color: #63748f;
 }
-
 .btn {
   border: 0;
   border-radius: 30px;
@@ -106,24 +95,18 @@ p { line-height: 1.8; }
   box-shadow: 0 5px 14px #315caa30;
   transition: transform .2s, background .2s;
 }
-
 .btn:hover {
   transform: translateY(-2px);
   background: #24498c;
 }
-
 .btn-pink { background: #e786b5; }
 .btn-pink:hover { background: #d96b9e; }
-
 .btn:disabled {
   opacity: .6;
   cursor: not-allowed;
 }
-
 /* ENVELOPE */
-
 .envelope-wrap { padding-top: 12vh; }
-
 .envelope {
   position: relative;
   width: min(82vw, 340px);
@@ -134,7 +117,6 @@ p { line-height: 1.8; }
   box-shadow: 0 15px 35px #5279ad35;
   overflow: hidden;
 }
-
 .envelope:before {
   content: "";
   position: absolute;
@@ -143,7 +125,6 @@ p { line-height: 1.8; }
   clip-path: polygon(0 0, 50% 60%, 100% 0);
   z-index: 2;
 }
-
 .envelope:after {
   content: "";
   position: absolute;
@@ -152,7 +133,6 @@ p { line-height: 1.8; }
   clip-path: polygon(0 100%, 50% 47%, 100% 100%);
   z-index: 3;
 }
-
 .letter-peek {
   position: absolute;
   width: 76%;
@@ -166,17 +146,13 @@ p { line-height: 1.8; }
   place-items: center;
   font-size: 2.5rem;
 }
-
 .heart { font-size: 1.5rem; margin: 10px; }
-
 /* FRAMES */
-
 .frame-wrap {
   position: relative;
   width: min(100%, 560px);
   margin: 60px auto 35px;
 }
-
 .frame {
   position: relative;
   background: rgba(255,255,255,.95);
@@ -185,7 +161,6 @@ p { line-height: 1.8; }
   padding: clamp(22px, 6vw, 42px) clamp(15px, 5vw, 35px);
   box-shadow: 0 12px 35px #315caa24;
 }
-
 .frame:before, .frame:after {
   content: "★";
   position: absolute;
@@ -193,12 +168,9 @@ p { line-height: 1.8; }
   font-size: 31px;
   z-index: 3;
 }
-
 .frame:before { top: -20px; left: -18px; }
 .frame:after { bottom: -20px; right: -18px; }
-
 .frame-title { margin-top: 0; color: #557fc2; }
-
 .edge-character {
   position: absolute;
   z-index: 4;
@@ -208,55 +180,44 @@ p { line-height: 1.8; }
   mix-blend-mode: multiply;
   pointer-events: none;
 }
-
 .letter-character {
   left: -65px;
   bottom: 12%;
   transform: rotate(-5deg);
 }
-
 .passcode-character {
   right: -66px;
   top: 5%;
   transform: rotate(4deg);
 }
-
 @media (max-width: 480px) {
   .letter-character {
     left: -30px;
     bottom: -48px;
     width: 105px;
   }
-
   .passcode-character {
     right: -28px;
     top: -52px;
     width: 105px;
   }
-
   .frame { border-width: 6px; }
   main { padding-left: 13px; padding-right: 13px; }
 }
-
 /* LETTER */
-
 .letter-text {
   text-align: left;
   font-size: 1rem;
   line-height: 1.95;
 }
-
 .letter-text p { margin: 0 0 18px; }
-
 .signature {
   text-align: right;
   color: var(--deep-blue);
   font-style: italic;
   margin-top: 28px;
 }
-
 /* PASSCODE */
-
 .code-input {
   width: min(100%, 280px);
   display: block;
@@ -264,24 +225,20 @@ p { line-height: 1.8; }
   padding: 15px;
   text-align: center;
   font-size: 1.4rem;
-  letter-spacing: 8px;
+  letter-spacing: 4px;
   border: 2px solid #9fc0ff;
   border-radius: 12px;
   background: #fffafd;
   color: var(--deep-blue);
   outline: none;
 }
-
 .code-input:focus { border-color: #e786b5; }
-
 .feedback {
   min-height: 28px;
   color: #b84c80;
   font-size: .92rem;
 }
-
 /* QUESTION */
-
 .question-card {
   padding: 28px 18px;
   background: rgba(255,255,255,.94);
@@ -289,12 +246,10 @@ p { line-height: 1.8; }
   border-radius: 20px;
   box-shadow: 0 12px 32px #e786b520;
 }
-
 .question-card h2 {
   color: #c85d91;
   font-size: clamp(1.4rem, 5vw, 2rem);
 }
-
 .button-row {
   display: flex;
   justify-content: center;
@@ -304,9 +259,21 @@ p { line-height: 1.8; }
   margin-top: 25px;
   min-height: 65px;
 }
-
-#noButton { background: #8b9ab3; }
-
+#noButton {
+  background: #8b9ab3;
+  position: relative;
+  touch-action: manipulation;
+}
+#noButton.disappearing {
+  animation: noDisappear .3s ease forwards;
+  pointer-events: none;
+}
+@keyframes noDisappear {
+  to {
+    opacity: 0;
+    transform: scale(.2) rotate(20deg);
+  }
+}
 .please-picture {
   display: block;
   width: min(70%, 220px);
@@ -315,15 +282,12 @@ p { line-height: 1.8; }
   margin: 20px auto 8px;
   mix-blend-mode: multiply;
 }
-
 .please-message {
   color: #c85d91;
   font-size: 1.5rem;
   font-weight: bold;
 }
-
 /* FINAL POSTER */
-
 .poster-frame {
   background: white;
   border: 10px solid #79aaff;
@@ -332,39 +296,21 @@ p { line-height: 1.8; }
   box-shadow: 0 18px 45px #315caa38;
   animation: posterPop .8s cubic-bezier(.2,.8,.2,1) both;
 }
-
 @keyframes posterPop {
   from { opacity: 0; transform: scale(.65) rotate(-4deg); }
   to { opacity: 1; transform: scale(1) rotate(0); }
 }
-
 .poster-image {
   display: block;
   width: 100%;
   height: auto;
 }
-
 .poster-stars {
   color: #ffc943;
   font-size: 1.7rem;
   letter-spacing: 12px;
   margin: 12px 0;
 }
-
-/* ENDING SONG */
-
-.music-card {
-  margin: 25px auto;
-  padding: 20px;
-  width: min(100%, 450px);
-  border: 2px solid #a9c9ff;
-  border-radius: 18px;
-  background: rgba(255,255,255,.95);
-}
-
-.music-card p { margin: 8px 0; }
-audio { width: 100%; margin: 12px 0; }
-
 footer {
   padding: 30px 10px 0;
   color: #6b7c98;
@@ -372,11 +318,8 @@ footer {
 }
 </style>
 </head>
-
 <body>
-
 <!-- BACKGROUND PICTURES -->
-
 <div class="background-collage" aria-hidden="true">
   <img class="bg-photo bg1" src="IMG_2723.jpeg" alt="">
   <img class="bg-photo bg2" src="IMG_2726.jpeg" alt="">
@@ -386,418 +329,315 @@ footer {
   <img class="bg-photo bg6" src="IMG_2730.jpeg" alt="">
   <img class="bg-photo bg7" src="IMG_2733.jpeg" alt="">
 </div>
-
 <main>
-
 <!-- PAGE 1: ENVELOPE -->
-
 <section class="page envelope-wrap" id="envelopePage">
   <p class="heart">🩵 💌 🩷</p>
   <h1>A little something for you</h1>
   <p>Made with love, just for you.</p>
-
   <div class="envelope">
     <div class="letter-peek">♡</div>
   </div>
-
   <button class="btn" onclick="openLetter()">
     Open your letter 💌
   </button>
-
   <p class="small-note">Take your time reading it.</p>
 </section>
-
-
 <!-- PAGE 2: LOVE LETTER -->
-
 <section class="page hidden" id="letterPage">
   <div class="frame-wrap">
-
-    <img class="edge-character letter-character"
-         src="IMG_2724.jpeg" alt="">
-
-    <article class="frame">
-      <p class="heart">🩵 ♡ 🩷</p>
-      <h2 class="frame-title">A letter for you</h2>
-
-      <div class="letter-text">
-
-        <p>I still don't think words will ever be enough to explain everything I have wanted to say to you, but I want to try anyway. You have become someone who means a lot to me, and no matter how complicated things have felt sometimes, that has never been something I could simply pretend away.</p>
-
-        <p>Somehow, you became part of my days in ways I didn't expect. The little conversations, the random moments, the laughter, and even the times when we didn't know what to say all became memories I carry with me. It is strange how one person can make ordinary moments feel different.</p>
-
-        <p>There are things I wish I had handled better. I know that caring about someone does not automatically mean knowing how to love them perfectly. Sometimes people misunderstand each other, sometimes feelings get too big, and sometimes we struggle to explain what is happening inside us. I know I have things to learn, too.</p>
-
-        <p>I never wanted us to become two people who only remember the difficult parts. There were good moments, real feelings, and reasons we cared about each other in the first place. I still appreciate those memories, and I don't want to act as if they meant nothing just because everything has not always been easy.</p>
-
-        <p>Little things remind me of you more often than you probably realise. A song, a joke, a certain kind of day, or something I wish I could tell you immediately. Sometimes I catch myself wanting to share something with you before I remember that things are different now.</p>
-
-        <p>Loving someone also means understanding that they are their own person. It means listening, being honest, respecting boundaries, and giving each other room to grow. I don't expect everything to be perfect, and I don't want either of us to feel pressured into anything. I just hope that whatever happens, we can be genuine with each other.</p>
-
-        <p>Can I be honest? A part of me still cares about you deeply. I cannot promise that I have every answer, and I will not pretend that the past never happened. But I can say that the feelings I had were real, and the place you hold in my memories is real, too.</p>
-
-        <p>And if we ever get another chance to understand each other, I would want us to do things with more patience, more communication, and more kindness. Not because we have to recreate what we had before, but because we deserve something that feels safe and honest for both of us.</p>
-
-        <p>Really, I made this because I wanted you to have something that shows how much thought I put into you. Every little detail is here for a reason. I hope that when you see it, you understand that you have mattered to me in a way I cannot explain with one simple sentence.</p>
-
-        <p>Even if you are unsure what to say, you don't have to find the perfect words. Just be honest with me. Whatever your answer is, I want it to be yours, without pressure or guilt.</p>
-
-      </div>
-
-      <p class="signature">Yours, with love. ♡</p>
-    </article>
+<img class="edge-character letter-character"
+     src="IMG_2724.jpeg" alt="">
+<article class="frame">
+  <p class="heart">🩵 ♡ 🩷</p>
+  <h2 class="frame-title">A letter for you</h2>
+  <div class="letter-text">
+    <p>I still don't think words will ever be enough to explain everything I have wanted to say to you, but I want to try anyway. You have become someone who means a lot to me, and no matter how complicated things have felt sometimes, that has never been something I could simply pretend away.</p>
+    <p>Somehow, you became part of my days in ways I didn't expect. The little conversations, the random moments, the laughter, and even the times when we didn't know what to say all became memories I carry with me. It is strange how one person can make ordinary moments feel different.</p>
+    <p>There are things I wish I had handled better. I know that caring about someone does not automatically mean knowing how to love them perfectly. Sometimes people misunderstand each other, sometimes feelings get too big, and sometimes we struggle to explain what is happening inside us. I know I have things to learn, too.</p>
+    <p>I never wanted us to become two people who only remember the difficult parts. There were good moments, real feelings, and reasons we cared about each other in the first place. I still appreciate those memories, and I don't want to act as if they meant nothing just because everything has not always been easy.</p>
+    <p>Little things remind me of you more often than you probably realise. A song, a joke, a certain kind of day, or something I wish I could tell you immediately. Sometimes I catch myself wanting to share something with you before I remember that things are different now.</p>
+    <p>Loving someone also means understanding that they are their own person. It means listening, being honest, respecting boundaries, and giving each other room to grow. I don't expect everything to be perfect, and I don't want either of us to feel pressured into anything. I just hope that whatever happens, we can be genuine with each other.</p>
+    <p>Can I be honest? A part of me still cares about you deeply. I cannot promise that I have every answer, and I will not pretend that the past never happened. But I can say that the feelings I had were real, and the place you hold in my memories is real, too.</p>
+    <p>And if we ever get another chance to understand each other, I would want us to do things with more patience, more communication, and more kindness. Not because we have to recreate what we had before, but because we deserve something that feels safe and honest for both of us.</p>
+    <p>Really, I made this because I wanted you to have something that shows how much thought I put into you. Every little detail is here for a reason. I hope that when you see it, you understand that you have mattered to me in a way I cannot explain with one simple sentence.</p>
+    <p>Even if you are unsure what to say, you don't have to find the perfect words. Just be honest with me. Whatever your answer is, I want it to be yours, without pressure or guilt.</p>
   </div>
-
+  <p class="signature">Yours, with love. ♡</p>
+</article>
+  </div>
   <button class="btn" onclick="showPage('passcodePage')">
     Continue 🩵
   </button>
 </section>
-
-
 <!-- PAGE 3: PASSCODE -->
-
 <section class="page hidden" id="passcodePage">
   <div class="frame-wrap">
-
-    <img class="edge-character passcode-character"
-         src="IMG_2725.jpeg" alt="">
-
-    <div class="frame">
-      <p class="heart">🔐 🩵</p>
-      <h1>A little secret</h1>
-      <p>There is one more thing waiting for you.</p>
-
-      <p class="small-note" id="birthdateHint">
-        Hint: a little secret. ♡
-      </p>
-
-      <form id="codeForm">
-        <input
-          class="code-input"
-          id="passcode"
-          type="password"
-          inputmode="numeric"
-          autocomplete="off"
-          maxlength="6"
-          placeholder="••••••"
-          aria-label="Enter six-digit passcode"
-          required
-        >
-
-        <button class="btn" type="submit">Unlock ♡</button>
-      </form>
-
-      <p class="feedback" id="codeFeedback" aria-live="polite"></p>
-      <p class="small-note" id="attemptText">
-        Six attempts available.
-      </p>
-    </div>
+<img class="edge-character passcode-character"
+     src="IMG_2725.jpeg" alt="">
+<div class="frame">
+  <p class="heart">🔐 🩵</p>
+  <h1>A little secret</h1>
+  <p>There is one more thing waiting for you.</p>
+  <p class="small-note" id="birthdateHint">
+    Hint: a little secret. ♡
+  </p>
+  <form id="codeForm">
+    <input
+      class="code-input"
+      id="passcode"
+      type="password"
+      inputmode="text"
+      autocomplete="off"
+      maxlength="128"
+      placeholder="Enter passcode"
+      aria-label="Enter passcode"
+      required
+    >
+    <button class="btn" type="submit">Unlock ♡</button>
+  </form>
+  <p class="feedback" id="codeFeedback" aria-live="polite"></p>
+  <p class="small-note" id="attemptText">
+    Six attempts available.
+  </p>
+</div>
   </div>
 </section>
-
-
-<!-- PAGE 4: DO YOU WANT TO SEE SOMETHING? -->
-
+<!-- PAGE 4: NEXT CLIP QUESTION -->
 <section class="page hidden" id="questionPage">
   <div class="frame-wrap">
-
-    <div class="frame question-card">
-      <p class="heart">🩵 🩷 🩵</p>
-
-      <h2>Can I show you something? 👀</h2>
-
-      <p>
-        I made one more little surprise for you.
-        Do you wanna see it? ♡
-      </p>
-
-      <div class="button-row">
-
-        <button class="btn btn-pink" onclick="showPoster()">
-          YES 🩷
-        </button>
-
-        <button class="btn" id="noButton" onclick="handleNo()">
-          NO 🙃
-        </button>
-
-      </div>
-
-      <!-- This appears only AFTER the NO button disappears -->
-
-      <div id="pleaseArea" class="hidden">
-        <img
-          class="please-picture"
-          src="IMG_2724.jpeg"
-          alt="Stitch peeking out"
-        >
-
-        <p class="please-message">Pretty please? ♡</p>
-
-        <p>There's something I made just for you. 🩵</p>
-
-        <button class="btn btn-pink" onclick="showPoster()">
-          Okay, show me 💗
-        </button>
-      </div>
-
-    </div>
+<div class="frame question-card">
+  <p class="heart">🩵 ✨ 🩷</p>
+  <h2>Do you want to see the next clip? 👀</h2>
+  <p>I made a little something for you. ♡</p>
+  <div class="button-row">
+    <button class="btn btn-pink" onclick="showPoster()">
+      YES, SHOW ME! 🩷
+    </button>
+    <button class="btn" id="noButton" onclick="handleNo()">
+      NO 🙈
+    </button>
+  </div>
+  <!-- Appears only after NO disappears -->
+  <div id="pleaseArea" class="hidden">
+    <img
+      class="please-picture"
+      src="IMG_2724.jpeg"
+      alt="Stitch peeking out"
+    >
+    <p class="please-message">Pretty please? ♡</p>
+    <p>I've made something special for you. 🩵</p>
+    <button class="btn btn-pink" onclick="showPoster()">
+      Okay, show me 💗
+    </button>
+  </div>
+</div>
   </div>
 </section>
-
-
 <!-- PAGE 5: FINAL POSTER -->
-
 <section class="page hidden" id="posterPage">
-
   <p class="heart">🩵 ⭐ 🩷 ⭐ 🩵</p>
-
   <h1>One last thing...</h1>
   <p>Made especially for you. ♡</p>
-
   <div class="poster-frame">
-
-    <div class="poster-stars">★ ★ ★ ★</div>
-
-    <!-- SAME POSTER AS BEFORE -->
-
-    <img
-      class="poster-image"
-      src="IMG_2744.png"
-      alt="Your special proposal poster"
-    >
-
-    <div class="poster-stars">★ ★ ★ ★</div>
-
+<div class="poster-stars">★ ★ ★ ★</div>
+<img
+  class="poster-image"
+  src="IMG_2744.png"
+  alt="Your special proposal poster"
+>
+<div class="poster-stars">★ ★ ★ ★</div>
   </div>
-
-  <div class="music-card">
-
-    <p class="heart">🎵 🩵 🎵</p>
-    <h2>One song for you</h2>
-
-    <p><strong>“Selfish” — PnB Rock</strong></p>
-
-    <p class="small-note">
-      Press play to listen while you look at the poster.
-    </p>
-
-    <audio id="endingSong" controls preload="none">
-      <source src="selfish.mp3" type="audio/mpeg">
-      Your browser does not support audio playback.
-    </audio>
-
-    <p class="small-note" id="musicFeedback">
-      If the song doesn't load, use the link below.
-    </p>
-
-    <a
-      href="https://open.spotify.com/search/Selfish%20PnB%20Rock"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Find “Selfish” on Spotify 🎧
-    </a>
-
-  </div>
-
   <p>
     Whatever your answer, thank you for taking the time to read this. ♡
   </p>
-
   <footer>Made with care 🩵</footer>
-
 </section>
-
 </main>
-
 <script>
-
-/* PAGE NAVIGATION */
-
-function showPage(pageId) {
-  document.querySelectorAll(".page").forEach(function(page) {
-    page.classList.add("hidden");
-  });
-
-  document.getElementById(pageId).classList.remove("hidden");
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-}
-
-function openLetter() {
-  showPage("letterPage");
-}
-
-
-/* PASSCODE: SIX WRONG ATTEMPTS = ONE-MINUTE LOCKOUT */
-
-const correctCode = "121011";
+/*
+  The passcode is intentionally not stored in this file.
+  Configure the server endpoint in the deployment environment instead.
+  Example:
+    window.PASSCODE_VERIFY_URL = "/api/verify-passcode";
+  The endpoint should accept:
+    POST /api/verify-passcode
+    Content-Type: application/json
+    { "passcode": "..." }
+  It should return:
+    { "valid": true }
+  for a correct passcode, or:
+    { "valid": false }
+  for an incorrect passcode.
+  Keep the actual passcode and validation logic on the server.
+*/
+const passcodeVerifyUrl =
+  window.PASSCODE_VERIFY_URL || "/api/verify-passcode";
 const maximumAttempts = 6;
 const lockoutDuration = 60;
-
 let attempts = 0;
 let lockedUntil = 0;
 let lockoutTimer = null;
-
+let verificationInProgress = false;
 const codeForm = document.getElementById("codeForm");
 const codeInput = document.getElementById("passcode");
 const codeFeedback = document.getElementById("codeFeedback");
 const attemptText = document.getElementById("attemptText");
 const birthdateHint = document.getElementById("birthdateHint");
 const unlockButton = codeForm.querySelector("button");
-
 function updateLockout() {
   const secondsLeft = Math.ceil(
     (lockedUntil - Date.now()) / 1000
   );
-
   if (secondsLeft > 0) {
     codeInput.disabled = true;
     unlockButton.disabled = true;
-
     codeFeedback.textContent =
       "Too many attempts. Try again in " +
       secondsLeft + " seconds.";
-
     attemptText.textContent =
       "The page is temporarily locked.";
-
     return;
   }
-
   clearInterval(lockoutTimer);
   lockoutTimer = null;
   lockedUntil = 0;
   attempts = 0;
-
   codeInput.disabled = false;
   unlockButton.disabled = false;
-
   codeFeedback.textContent = "You can try again now.";
   attemptText.textContent = "Six attempts available.";
 }
-
-codeForm.addEventListener("submit", function(event) {
+function beginLockout() {
+  lockedUntil = Date.now() + lockoutDuration * 1000;
+  updateLockout();
+  lockoutTimer = setInterval(function() {
+    updateLockout();
+  }, 1000);
+}
+async function verifyPasscode(enteredCode) {
+  const response = await fetch(passcodeVerifyUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    credentials: "same-origin",
+    body: JSON.stringify({
+      passcode: enteredCode
+    })
+  });
+  if (!response.ok) {
+    throw new Error("Passcode verification failed.");
+  }
+  const result = await response.json();
+  return result.valid === true;
+}
+codeForm.addEventListener("submit", async function(event) {
   event.preventDefault();
-
+  if (verificationInProgress) return;
   if (Date.now() < lockedUntil) {
     updateLockout();
     return;
   }
-
   const enteredCode = codeInput.value.trim();
-
-  if (enteredCode === correctCode) {
-    codeFeedback.textContent = "";
+  if (!enteredCode) return;
+  verificationInProgress = true;
+  codeInput.disabled = true;
+  unlockButton.disabled = true;
+  codeFeedback.textContent = "Checking…";
+  try {
+    const isValid = await verifyPasscode(enteredCode);
     codeInput.value = "";
-    showPage("questionPage");
-    return;
+    if (isValid) {
+      codeFeedback.textContent = "";
+      showPage("questionPage");
+      return;
+    }
+    attempts++;
+    /* Reveal the hint after two incorrect attempts. */
+    if (attempts >= 2) {
+      birthdateHint.textContent =
+        "Hint: try your birthdate 😉🩵";
+    }
+    if (attempts >= maximumAttempts) {
+      beginLockout();
+      return;
+    }
+    const remaining = maximumAttempts - attempts;
+    codeFeedback.textContent =
+      "That isn't quite right. Try again. ♡";
+    attemptText.textContent =
+      remaining +
+      (remaining === 1 ? " attempt" : " attempts") +
+      " remaining.";
+    codeInput.disabled = false;
+    unlockButton.disabled = false;
+  } catch (error) {
+    codeInput.value = "";
+    codeFeedback.textContent =
+      "We couldn't verify that right now. Please try again.";
+    codeInput.disabled = false;
+    unlockButton.disabled = false;
+  } finally {
+    verificationInProgress = false;
   }
-
-  attempts++;
-  codeInput.value = "";
-
-  /* Show the birthdate hint after two wrong attempts */
-
-  if (attempts >= 2) {
-    birthdateHint.textContent =
-      "Hint: try your birthdate 😉🩵";
-  }
-
-  if (attempts >= maximumAttempts) {
-    lockedUntil = Date.now() + lockoutDuration * 1000;
-
-    updateLockout();
-
-    lockoutTimer = setInterval(function() {
-      updateLockout();
-    }, 1000);
-
-    return;
-  }
-
-  const remaining = maximumAttempts - attempts;
-
-  codeFeedback.textContent =
-    "That isn't quite right. Try again. ♡";
-
-  attemptText.textContent =
-    remaining +
-    (remaining === 1 ? " attempt" : " attempts") +
-    " remaining.";
 });
-
-
-/* NO BUTTON: DISAPPEARS BEFORE PRETTY PLEASE APPEARS */
-
+/* PAGE NAVIGATION */
+function showPage(pageId) {
+  document.querySelectorAll(".page").forEach(function(page) {
+    page.classList.add("hidden");
+  });
+  document.getElementById(pageId).classList.remove("hidden");
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+function openLetter() {
+  showPage("letterPage");
+}
+/* NO BUTTON: MOVE, THEN DISAPPEAR */
 let noClicks = 0;
-
+let noIsGone = false;
 function handleNo() {
+  if (noIsGone) return;
   noClicks++;
-
   const noButton = document.getElementById("noButton");
   const pleaseArea = document.getElementById("pleaseArea");
-
   const messages = [
     "Wait 😭",
     "Are you sure? 🥹",
     "Think again! 💗",
-    "Pretty please? 🩵"
+    "One more chance? 🩵"
   ];
-
-  /* Let the NO button move around four times */
-
   if (noClicks <= 4) {
     const x = Math.random() * 120 - 60;
     const y = Math.random() * 70 - 35;
-
     noButton.style.transform =
       "translate(" + x + "px, " + y + "px)";
-
     noButton.textContent = messages[noClicks - 1];
   }
-
-  /* On the fifth click, remove NO first.
-     Then reveal the pretty-please message. */
-
+  /* Fifth press: animate NO away, then show the message. */
   if (noClicks >= 5) {
-    noButton.style.display = "none";
-
-    pleaseArea.classList.remove("hidden");
+    noIsGone = true;
+    noButton.classList.add("disappearing");
+    setTimeout(function() {
+      noButton.style.display = "none";
+      pleaseArea.classList.remove("hidden");
+    }, 300);
   }
 }
-
-
-/* FINAL POSTER AND ENDING SONG */
-
+/* FINAL POSTER */
 function showPoster() {
   showPage("posterPage");
-
-  const song = document.getElementById("endingSong");
-  const feedback = document.getElementById("musicFeedback");
-
-  song.play().then(function() {
-    feedback.textContent = "Now playing. 🩵";
-  }).catch(function() {
-    feedback.textContent =
-      "Press Play to listen, or use the Spotify link below.";
-  });
 }
-
-
-/* HIDE BACKGROUND IMAGES IF A FILENAME DOESN'T MATCH */
-
+/* HIDE BACKGROUND IMAGES IF FILENAMES DON'T MATCH */
 document.querySelectorAll(".bg-photo").forEach(function(image) {
   image.addEventListener("error", function() {
     image.style.display = "none";
   });
 });
-
 </script>
-
 </body>
 </html>
